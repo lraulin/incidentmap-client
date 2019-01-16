@@ -1,11 +1,17 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/App.css";
 import secrets from "../secrets";
+import { incidentDictionary } from "../utilities/incidents";
+import axios from "axios";
 import _ from "lodash";
 import firebase from "../firebase";
 import createIncidentMap from "../incident_map";
 import SearchPane from "./SearchPane";
 import TweetPane from "./TweetPane";
+import Map from "./Map.old";
+
+// REST API url for mock database
+const JSON_SERVER_URL = "http://localhost:3001/posts";
 
 const isEmpty = x => {
   if (!x) {
@@ -19,10 +25,9 @@ const isEmpty = x => {
   }
 };
 
-function AppContainer() {
-  const mapRef = useRef(createIncidentMap());
-  const JSON_SERVER_URL = "http://localhost:3001/posts";
+const AppContainer = () => {
   const [mounted, setMounted] = useState(false);
+  const [map, setMap] = useState(null);
   const [filteredTweets, setFilteredTweets] = useState(null);
   const [filter, setFilter] = useState({
     text: "",
@@ -65,15 +70,13 @@ function AppContainer() {
     applyFilter(filter, getLocal());
   };
 
-  const applyFilter = (opts, allTweets = []) => {
-    console.log(`Tweets: ${allTweets}`);
-    if (!allTweets) return;
-    console.log("applying filter...");
+  const applyFilter = (opts, allTweets) => {
+    if (!allTweets || !map) return;
     const { startDate, endDate, incidentTypes, text } = opts;
     const selectedTypes = Object.keys(incidentTypes).filter(
       key => incidentTypes[key]
     );
-    let tweetList = allTweets;
+    let tweetList = Object.values(allTweets);
 
     // Filters
     const notRetweet = t => !("retweeted_status" in t);
@@ -97,7 +100,7 @@ function AppContainer() {
     tweetList = text ? tweetList.filter(matchesText) : tweetList;
     tweetList = incidentTypes ? tweetList.filter(hasTypes) : tweetList;
 
-    mapRef.current.updateMarkers(tweetList);
+    // map.updateMarkers(tweetList);
   };
 
   const firebaseInit = async () => {
@@ -175,23 +178,22 @@ function AppContainer() {
     }
   };
 
-  const initMap = async () => {
-    mapRef.current.initMap();
-
-    const tweets = getLocal();
-    if (tweets) {
-      applyFilter(filter, tweets);
-    }
-    firebaseInit();
-  };
-
   // ComponentDidMount
   useEffect(() => {
     if (!mounted) {
-      initMap();
+      firebaseInit();
+
+      // const map = createIncidentMap();
+      // map.initMap();
+      // setMap(map);
+
+      const tweets = getLocal();
+      if (tweets) {
+        applyFilter(filter, tweets);
+      }
     }
     setMounted(true);
-  }, []);
+  });
 
   return (
     <div className="App">
@@ -221,8 +223,8 @@ function AppContainer() {
             </div>
           </div>
           <div className="col-sm-7" style={{ height: "100vh" }}>
-            {/* <Map /> */}
-            <div style={{ height: "100vh", width: "100%" }} id="myMap" />;
+            {/* <div style={{ height: "100vh", width: "100%" }} id="myMap" /> */}
+            <Map filteredTweets={filteredTweets} />
           </div>
         </div>
         <div className="col-sm-3 d-none d-lg-block" style={{ height: "100vh" }}>
@@ -231,6 +233,6 @@ function AppContainer() {
       </div>
     </div>
   );
-}
+};
 
 export default AppContainer;

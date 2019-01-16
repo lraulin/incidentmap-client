@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import createIncidentMap from "../utilities/incident_map";
+import createIncidentMap from "../incident_map";
 
 const Map = ({ filteredTweets, ...props }) => {
   const [initialized, setInitialized] = useState(false);

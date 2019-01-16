@@ -12,8 +12,9 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "preserve",
-    "lib": ["es2017", "dom"]
+    "jsx": "preserve"
   },
-  "include": ["src"]
+  "include": [
+    "src"
+  ]
 }

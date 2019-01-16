@@ -1,17 +1,21 @@
 /// <reference types="@types/googlemaps" />
-/// <reference types="@types/markerclustererplus" />
-import secrets from "../secrets";
-import MarkerClusterer from "@google/markerclustererplus";
-import { createElement } from "react";
+import secrets from "./secrets";
+import MarkerClusterer from "@google/markerclusterer";
+import { createElement } from "React";
 import { render } from "react-dom";
-import InfoWindow from "../components/InfoWindow";
+import InfoWindow from "./components/InfoWindow";
 import { Status as Tweet } from "twitter-d";
-import { MapOptions, TweetHash, IncidentMap, Coordinates } from "./types";
+import {
+  MapOptions,
+  TweetHash,
+  IncidentMap,
+  Coordinates
+} from "./utilities/types";
 
 const createIncidentMap = (): IncidentMap => {
-  let map: google.maps.Map | null = null;
-  let markers: google.maps.Marker[] | null = null;
-  let markerCluster: MarkerClusterer | null = null;
+  let map: google.maps.Map = null;
+  let markers: Array<google.maps.Marker> = null;
+  let markerCluster: MarkerClusterer = null;
   let lastInfoWindow: google.maps.InfoWindow = null;
   const options: MapOptions = {
     center: {

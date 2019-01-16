@@ -4,15 +4,11 @@
   "private": true,
   "dependencies": {
     "@babel/runtime": "7.0.0-beta.55",
-    "@firebase/app-types": "^0.3.2",
     "@google/maps": "^0.5.5",
-    "@google/markerclustererplus": "^2.1.11",
+    "@google/markerclusterer": "^1.0.3",
     "@types/googlemaps": "^3.30.16",
     "@types/jest": "^23.3.12",
-    "@types/jquery": "^3.3.29",
-    "@types/lodash": "^4.14.119",
-    "@types/markerclustererplus": "^2.1.33",
-    "@types/node": "9.6.7",
+    "@types/node": "^10.12.18",
     "@types/react": "^16.7.19",
     "@types/react-dom": "^16.0.11",
     "@types/twitter": "^1.7.0",
@@ -31,8 +27,6 @@
     "node-where": "^1.1.0",
     "pg": "^7.7.1",
     "points-cluster": "^0.1.4",
-    "popper.js": "^1.14.6",
-    "prop-types": "^15.6.2",
     "react": "^16.8.0-alpha.0",
     "react-calendar": "^2.17.5",
     "react-date-picker": "^7.1.1",
@@ -48,9 +42,6 @@
     "styled-components": "^4.1.2",
     "twitter-node-client": "^0.0.6",
     "typescript": "^3.2.2"
-  },
-  "resolutions": {
-    "@types/react": "^16.7.19"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -73,6 +64,7 @@
   "devDependencies": {
     "case-sensitive-paths-webpack-plugin": "^2.1.2",
     "firebase": "^5.7.2",
-    "google-maps-api-typings": "^1.0.5"
+    "google-maps-api-typings": "^1.0.5",
+    "twitter-d": "^0.2.1"
   }
 }
