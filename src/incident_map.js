@@ -1,23 +1,12 @@
-/// <reference types="@types/googlemaps" />
 import secrets from "./secrets";
 import MarkerClusterer from "@google/markerclusterer";
-import { createElement } from "React";
-import { render } from "react-dom";
+import React from "react";
+import ReactDOM from "react-dom";
 import InfoWindow from "./components/InfoWindow";
-import { Status as Tweet } from "twitter-d";
-import {
-  MapOptions,
-  TweetHash,
-  IncidentMap,
-  Coordinates
-} from "./utilities/types";
 
-const createIncidentMap = (): IncidentMap => {
-  let map: google.maps.Map = null;
-  let markers: Array<google.maps.Marker> = null;
-  let markerCluster: MarkerClusterer = null;
-  let lastInfoWindow: google.maps.InfoWindow = null;
-  const options: MapOptions = {
+const createIncidentMap = () => {
+  let map, markers, markerCluster, lastInfoWindow;
+  const options = {
     center: {
       lat: 39.8283,
       lng: -98.5795
@@ -26,14 +15,13 @@ const createIncidentMap = (): IncidentMap => {
   };
 
   return {
-    tweets: {},
     onScriptLoad() {
       const div = document.getElementById("myMap");
-      map = new window["google"].maps.Map(div, options);
+      map = new window.google.maps.Map(div, options);
       console.log("Map ready");
     },
     initMap() {
-      if (!window["google"]) {
+      if (!window.google) {
         const s = document.createElement("script");
         s.type = "text/javascript";
         s.src = `https://maps.google.com/maps/api/js?key=${
@@ -41,7 +29,7 @@ const createIncidentMap = (): IncidentMap => {
         }`;
         const scripts = document.getElementsByTagName("script");
         const x = scripts[scripts.length - 1];
-        x.parentNode.appendChild(s);
+        x.parentNode.appendChild(s, x);
         // Below is important.
         //We cannot access google.maps until it's finished loading
         console.log("script added. listening for load");
@@ -53,7 +41,7 @@ const createIncidentMap = (): IncidentMap => {
       }
     },
     updateMarkers(tweets) {
-      if (window["google"]) {
+      if (window.google) {
         // remove previous markers, if any
         if (markers) {
           markerCluster.clearMarkers();
@@ -63,21 +51,21 @@ const createIncidentMap = (): IncidentMap => {
         // Ternary operator produces empty list if length is 0, otherwise array of
         // markers.
         markers = tweets
-          ? tweets.map(tweet => {
-              let marker: google.maps.Marker = null;
-              if (tweet.coordinates) {
-                marker = new window["google"].maps.Marker({
+          ? tweets.map((tweet, i) => {
+              let marker = null;
+              if ("coordinates" in tweet) {
+                marker = new window.google.maps.Marker({
                   position: {
                     lat: tweet.coordinates.Latitude,
                     lng: tweet.coordinates.Longitude
                   }
                 });
-                const infoWindow = new window["google"].maps.InfoWindow({
+                const infoWindow = new window.google.maps.InfoWindow({
                   content: `<div id="infoWindow${tweet.id_str}" />`
                 });
                 infoWindow.addListener("domready", e =>
-                  render(
-                    createElement(InfoWindow, { tweet: tweet }, null),
+                  ReactDOM.render(
+                    <InfoWindow tweet={tweet} />,
                     document.getElementById(`infoWindow${tweet.id_str}`)
                   )
                 );
