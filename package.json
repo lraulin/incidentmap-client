@@ -21,6 +21,7 @@
     "node-where": "^1.1.0",
     "pg": "^7.7.1",
     "points-cluster": "^0.1.4",
+    "ramda": "^0.26.1",
     "react": "^16.8.0-alpha.0",
     "react-calendar": "^2.17.5",
     "react-date-picker": "^7.1.1",

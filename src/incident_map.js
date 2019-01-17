@@ -29,7 +29,7 @@ const createIncidentMap = () => {
         }`;
         const scripts = document.getElementsByTagName("script");
         const x = scripts[scripts.length - 1];
-        x.parentNode.appendChild(s, x);
+        x.parentNode.appendChild(s);
         // Below is important.
         //We cannot access google.maps until it's finished loading
         console.log("script added. listening for load");
@@ -41,7 +41,7 @@ const createIncidentMap = () => {
       }
     },
     updateMarkers(tweets) {
-      if (window.google) {
+      if (window.google && map) {
         // remove previous markers, if any
         if (markers) {
           markerCluster.clearMarkers();
