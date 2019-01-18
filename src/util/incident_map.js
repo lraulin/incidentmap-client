@@ -1,8 +1,8 @@
-import secrets from "./secrets";
+import secrets from "../data/secrets";
 import MarkerClusterer from "@google/markerclusterer";
 import React from "react";
 import ReactDOM from "react-dom";
-import InfoWindow from "./components/InfoWindow";
+import InfoWindow from "../components/InfoWindow";
 
 const createIncidentMap = () => {
   let map, markers, markerCluster, lastInfoWindow;

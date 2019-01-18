@@ -1,11 +1,16 @@
 import React from "react";
-import incidentTypes from "../utilities/incidents";
-import Calendar from "./Calendar";
+import incidentTypes from "../util/incidents";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import Checkbox from "./Checkbox";
-import { filter } from "rsvp";
 
 const containerStyle = {
   textAlign: "left"
+};
+const buttonStyle = {
+  letterSpacing: ".2em",
+  marginRight: "10px",
+  width: 75
 };
 
 const SearchPane = ({
@@ -16,76 +21,90 @@ const SearchPane = ({
 }) => {
   return (
     <div style={containerStyle}>
-      <strong>Incident Type</strong>
-      <br />
-      <button
-        className="btn btn-primary btn-sm"
-        name="selectNone"
-        onClick={() => {
-          Object.keys(filterSettings.incidentTypes).forEach(
-            k => (filterSettings.incidentTypes[k] = false)
-          );
-          setFilterSettings(filterSettings);
-        }}
-      >
-        None
-      </button>
-      <button
-        className="btn btn-primary btn-sm"
-        name="selectAll"
-        onClick={() => {
-          Object.keys(filterSettings.incidentTypes).forEach(
-            k => (filterSettings.incidentTypes[k] = true)
-          );
-          setFilterSettings(filterSettings);
-        }}
-      >
-        All
-      </button>
-      <br />
-      {incidentTypes.map(item => (
-        <React.Fragment key={item.id}>
-          <label>
+      <section id="typeFilterSection" style={{ marginBottom: 10 }}>
+        <strong>Incident Type</strong>
+        <br />
+        <button
+          className="btn btn-outline-primary btn-sm"
+          name="selectAll"
+          style={buttonStyle}
+          onClick={() => {
+            Object.keys(filterSettings.incidentTypes).forEach(
+              k => (filterSettings.incidentTypes[k] = true)
+            );
+            setFilterSettings(filterSettings);
+          }}
+        >
+          All
+        </button>
+        <button
+          className="btn btn-outline-secondary btn-sm"
+          name="selectNone"
+          style={buttonStyle}
+          onClick={() => {
+            Object.keys(filterSettings.incidentTypes).forEach(
+              k => (filterSettings.incidentTypes[k] = false)
+            );
+            setFilterSettings(filterSettings);
+          }}
+        >
+          None
+        </button>
+        <br />
+        {incidentTypes.map(item => (
+          <React.Fragment key={item.id}>
             <Checkbox
               type="checkbox"
               name={item.id}
               checked={filterSettings.incidentTypes[item.id]}
               toggleCheckBox={toggleCheckBox}
+              displayName={item.displayName}
             />
-            {item.displayName}
-          </label>
-          <br />
-        </React.Fragment>
-      ))}
-      <strong>Filter by Date</strong>
-      <Calendar
-        startDate={filterSettings.startDate}
-        endDate={filterSettings.endDate}
-        handleChangeDate={([startDate, endDate]) => {
-          setFilterSettings({ ...filterSettings, startDate, endDate });
-        }}
-      />
-      <br />
-      <label htmlFor="text">
-        <strong>Filter by Keywords</strong>
-      </label>
-      <input
-        type="search"
-        name="text"
-        value={filterSettings.text}
-        onChange={e => {
-          setFilterSettings({ ...filterSettings, text: e.target.value });
-        }}
-      />
-      <br />
-      <button
-        className="btn btn-primary"
-        name="filter"
-        onClick={() => filteredTweets()}
-      >
-        Filter
-      </button>
-      <br />
+            <br />
+          </React.Fragment>
+        ))}
+      </section>
+      <section id="dateFilterSection">
+        <strong>Filter by Date</strong>
+        <br />
+        After
+        <DatePicker
+          selected={filterSettings.startDate}
+          onChange={startDate =>
+            setFilterSettings({ ...filterSettings, startDate })
+          }
+        />
+        Before
+        <DatePicker
+          selected={filterSettings.endDate}
+          onChange={endDate =>
+            setFilterSettings({ ...filterSettings, endDate })
+          }
+        />
+        <br />
+        <br />
+      </section>
+      <section id="textFilterSection">
+        <label htmlFor="text">
+          <strong>Filter by Keywords</strong>
+        </label>
+        <input
+          type="search"
+          name="text"
+          value={filterSettings.text}
+          onChange={e => {
+            setFilterSettings({ ...filterSettings, text: e.target.value });
+          }}
+        />
+        <br />
+        <button
+          className="btn btn-primary"
+          name="filter"
+          onClick={() => filteredTweets()}
+        >
+          Filter
+        </button>
+      </section>
     </div>
   );
 };

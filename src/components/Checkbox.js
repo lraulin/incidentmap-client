@@ -5,16 +5,21 @@ const Checkbox = ({
   type = "checkbox",
   name = "",
   checked = false,
-  toggleCheckBox
+  toggleCheckBox,
+  displayName
 }) => {
   return (
-    <input
-      type={type}
-      name={name}
-      checked={checked}
-      onChange={() => toggleCheckBox(name)}
-      key={"input_" + name}
-    />
+    <label style={{ margin: 0 }}>
+      <input
+        type={type}
+        name={name}
+        checked={checked}
+        onChange={() => toggleCheckBox(name)}
+        key={"input_" + name}
+        style={{ marginRight: "0.4em" }}
+      />
+      {displayName}
+    </label>
   );
 };
 
