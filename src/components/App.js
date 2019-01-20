@@ -116,7 +116,6 @@ const AppContainer = () => {
 
     const top7 = takeLast(7, filteredTweets);
     setFilteredTweets(top7);
-    console.log(top7);
     mapRef.current.updateMarkers(filteredTweets);
   };
 
@@ -131,14 +130,15 @@ const AppContainer = () => {
 
   // Initialization
   useEffect(() => {
-    const filterTweetsWithFilter = tweets => filterTweets({ tweets });
     mapRef.current.initMap();
 
     const tweets = getTweetCache();
     if (tweets) {
-      filterTweetsWithFilter(tweets);
+      filterTweets({ tweets });
     }
 
+    // Wrap filterTweets so it can be passed as callback
+    const filterTweetsWithFilter = tweets => filterTweets({ tweets });
     myfirebase(filterTweetsWithFilter);
   }, []);
 

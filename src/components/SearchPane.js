@@ -1,5 +1,5 @@
 import React from "react";
-import incidentTypes from "../util/incidents";
+import incidentTypes from "../data/incidents";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Checkbox from "./Checkbox";

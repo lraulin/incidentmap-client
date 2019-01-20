@@ -30,6 +30,7 @@
     "react-tweet": "^1.7.1",
     "recompose": "^0.30.0",
     "request": "^2.88.0",
+    "stampit": "^4.2.0",
     "styled-components": "^4.1.2",
     "twitter-node-client": "^0.0.6"
   },
