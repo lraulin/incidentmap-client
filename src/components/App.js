@@ -4,11 +4,10 @@ import myfirebase from "../util/firebase";
 import createIncidentMap from "../util/incident_map";
 import SearchPane from "./SearchPane";
 import TweetPane from "./TweetPane";
-import { compose, filter, into, takeLast } from "ramda";
+import { compose, filter, into, takeLast, uniqBy } from "ramda";
 
 const AppContainer = () => {
   const [filteredTweets, setFilteredTweets] = useState([]);
-  const mountedRef = useRef(false);
   const mapRef = useRef(createIncidentMap());
   const [filterSettings, setFilterSettings] = useState({
     text: "",
@@ -107,8 +106,17 @@ const AppContainer = () => {
       filter(matchesText),
       filter(hasTypes)
     );
-    const filteredTweets = into([], tweetFilter, tweetList);
-    setFilteredTweets(takeLast(7, filteredTweets));
+
+    // Dedup
+    const justText = text => text.slice(0, text.indexOf(" http"));
+    const filteredTweets = uniqBy(
+      t => justText(t.text),
+      into([], tweetFilter, tweetList)
+    );
+
+    const top7 = takeLast(7, filteredTweets);
+    setFilteredTweets(top7);
+    console.log(top7);
     mapRef.current.updateMarkers(filteredTweets);
   };
 
@@ -123,18 +131,15 @@ const AppContainer = () => {
 
   // Initialization
   useEffect(() => {
-    if (!mountedRef.current) {
-      const filterTweetsWithFilter = tweets => filterTweets({ tweets });
-      mapRef.current.initMap();
+    const filterTweetsWithFilter = tweets => filterTweets({ tweets });
+    mapRef.current.initMap();
 
-      const tweets = getTweetCache();
-      if (tweets) {
-        filterTweetsWithFilter(tweets);
-      }
-
-      myfirebase(filterTweetsWithFilter);
+    const tweets = getTweetCache();
+    if (tweets) {
+      filterTweetsWithFilter(tweets);
     }
-    mountedRef.current = true;
+
+    myfirebase(filterTweetsWithFilter);
   }, []);
 
   return (
