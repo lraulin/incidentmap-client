@@ -1,5 +1,5 @@
 import React from "react";
-import Tweet from "./Tweet/Tweet";
+import Tweet from "react-tweet";
 import { className } from "postcss-selector-parser";
 import ReactScrollbar from "react-scrollbar";
 

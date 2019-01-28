@@ -5,10 +5,13 @@ import createIncidentMap from "../util/incident_map";
 import SearchPane from "./SearchPane";
 import TweetPane from "./TweetPane";
 import { compose, filter, into, takeLast, uniqBy } from "ramda";
+import secrets from "../data/secrets";
 
 const AppContainer = () => {
   const [filteredTweets, setFilteredTweets] = useState([]);
-  const mapRef = useRef(createIncidentMap());
+  const mapRef = useRef(
+    createIncidentMap({ apiKey: secrets.googleMapsApiKey, divName: "myMap" })
+  );
   const [filterSettings, setFilterSettings] = useState({
     text: "",
     startDate: null,
@@ -172,7 +175,7 @@ const AppContainer = () => {
               </div>
             </div>
           </div>
-          {/* [[[[[ SEARCH ]]]]] */}
+          {/* [[[[[ MAP ]]]]] */}
           <div
             className="col-sm-7"
             style={{ height: "100vh", width: "100%" }}

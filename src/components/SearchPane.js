@@ -13,12 +13,7 @@ const buttonStyle = {
   width: 75
 };
 
-const SearchPane = ({
-  filteredTweets,
-  toggleCheckBox,
-  filterSettings,
-  setFilterSettings
-}) => {
+const SearchPane = ({ toggleCheckBox, filterSettings, setFilterSettings }) => {
   return (
     <div style={containerStyle}>
       <section id="typeFilterSection" style={{ marginBottom: 10 }}>
@@ -97,13 +92,6 @@ const SearchPane = ({
           }}
         />
         <br />
-        <button
-          className="btn btn-primary"
-          name="filter"
-          onClick={() => filteredTweets()}
-        >
-          Filter
-        </button>
       </section>
     </div>
   );
