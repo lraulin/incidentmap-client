@@ -40,7 +40,6 @@ const GoogleMap = stampit({
           secrets.googleMapsApiKey
         }`;
         const body = document.getElementsByTagName("body")[0];
-        console.log(body);
         body.appendChild(script);
         script.addEventListener("load", e => {
           this.onScriptLoad();
@@ -69,9 +68,9 @@ const WithMarkerClusterer = stampit({
   },
   methods: {
     addMarker(lat, lng) {
-      let marker = (marker = new window.google.maps.Marker({
+      const marker = new window.google.maps.Marker({
         position: { lat, lng }
-      }));
+      });
       this.markers.push(marker);
       return marker;
     }

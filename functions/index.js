@@ -1,3 +1,5 @@
+#!/usr/local/bin/node
+
 const admin = require("firebase-admin");
 const serviceAccount = require("./incident-report-map-firebase-adminsdk-rx0ey-6ec9058686.json");
 const incidentTypes = require("./incidentTypes.js");
@@ -344,4 +346,4 @@ const putBack = async () => {
   console.log(tweetArr);
 };
 
-putBack();
+exportFirebaseToJSON();
