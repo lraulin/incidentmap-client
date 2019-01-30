@@ -109,6 +109,7 @@ const localizeTweet = async tweet => {
 
 // Save Tweet to Firebase, adding to tweets node with id_str as key
 const saveTweetToFirebase = tweet => {
+  tweet.db_created = Date().toString();
   ref.child(tweet.id_str).update(tweet, err => {
     if (err) {
       console.log(err);
