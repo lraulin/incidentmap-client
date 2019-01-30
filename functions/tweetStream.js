@@ -1,4 +1,4 @@
-#!/usr/local/bin/node
+#!/usr/bin/env node
 
 const admin = require("firebase-admin");
 const serviceAccount = require("./incident-report-map-firebase-adminsdk-rx0ey-6ec9058686.json");
