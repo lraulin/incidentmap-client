@@ -346,4 +346,8 @@ const putBack = async () => {
   console.log(tweetArr);
 };
 
-exportFirebaseToJSON();
+const firebaseDeleteAll = async () => {
+  await ref.set(tweets{});
+}
+
+firebaseDeleteAll();

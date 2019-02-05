@@ -118,6 +118,8 @@ const AppContainer = () => {
     );
 
     const top7 = takeLast(7, filteredTweets);
+    if (top7.length && top7[top7.length - 1].db_created)
+      console.log(top7[top7.length - 1].db_created);
     setFilteredTweets(top7);
     mapRef.current.updateMarkers(filteredTweets);
   };

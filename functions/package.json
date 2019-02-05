@@ -9,12 +9,20 @@
     "logs": "firebase functions:log"
   },
   "dependencies": {
+    "@stamp/compose": "^1.0.2",
+    "@stamp/it": "^1.1.0",
+    "@stamp/privatize": "^1.0.3",
+    "bunyan": "^1.8.12",
     "firebase-admin": "~6.0.0",
     "firebase-backup": "^0.0.3",
     "firebase-functions": "^2.1.0",
     "fs": "^0.0.1-security",
+    "mongodb": "^3.1.13",
+    "pg": "^7.8.0",
+    "pg-hstore": "^2.3.2",
     "request": "^2.88.0",
     "request-debug": "^0.2.0",
+    "sequelize": "^4.42.0",
     "twitter": "^1.7.1",
     "twitter-stream-api": "^0.5.2"
   },

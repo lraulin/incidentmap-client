@@ -3,7 +3,7 @@ import MarkerClusterer from "@google/markerclusterer";
 import React from "react";
 import ReactDOM from "react-dom";
 import InfoWindow from "../components/InfoWindow";
-import stampit from "stampit";
+import stampit from "@stamp/it";
 
 const GoogleMap = stampit({
   props: {
@@ -102,9 +102,8 @@ const TweetMarkers = stampit({
           this.clusterer.clearMarkers();
         }
 
-        // Add some markers to the map.
-        // Ternary operator produces empty list if length is 0, otherwise array of
-        // markers.
+        if (tweets.length === 0) return;
+
         tweets.forEach(tweet => {
           if ("coordinates" in tweet) {
             this.addInfoWindow(
