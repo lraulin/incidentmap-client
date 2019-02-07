@@ -6,8 +6,6 @@ const createIncidentType = (id, displayName, searchString, crisisType) => ({
   regex: reify(searchString)
 });
 
-const pipe = (...fns) => x => fns.reduce((v, f) => f(v), x)
-
 function reify(str) {
   str = str
     .toLowerCase()

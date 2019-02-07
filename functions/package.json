@@ -12,7 +12,9 @@
     "@stamp/compose": "^1.0.2",
     "@stamp/it": "^1.1.0",
     "@stamp/privatize": "^1.0.3",
+    "@stamp/required": "^1.0.1",
     "bunyan": "^1.8.12",
+    "esm": "^3.2.1",
     "firebase-admin": "~6.0.0",
     "firebase-backup": "^0.0.3",
     "firebase-functions": "^2.1.0",
@@ -26,5 +28,9 @@
     "twitter": "^1.7.1",
     "twitter-stream-api": "^0.5.2"
   },
-  "private": true
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "module": "main.js",
+  "license": "MIT"
 }

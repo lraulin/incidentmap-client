@@ -79,14 +79,14 @@ const WithMarkerClusterer = stampit({
 
 const TweetMarkers = stampit({
   methods: {
-    addInfoWindow(marker, tweet) {
+    addInfoWindow(marker) {
       const infoWindow = new window.google.maps.InfoWindow({
-        content: `<div id="infoWindow${tweet.id_str}" />`
+        content: `<div id="infoWindow${marker.tweet.id_str}" />`
       });
       infoWindow.addListener("domready", e =>
         ReactDOM.render(
-          <InfoWindow tweet={tweet} />,
-          document.getElementById(`infoWindow${tweet.id_str}`)
+          <InfoWindow tweet={marker.tweet} />,
+          document.getElementById(`infoWindow${marker.tweet.id_str}`)
         )
       );
       marker.addListener("click", () => {
@@ -106,13 +106,12 @@ const TweetMarkers = stampit({
 
         tweets.forEach(tweet => {
           if ("coordinates" in tweet) {
-            this.addInfoWindow(
-              this.addMarker(
-                tweet.coordinates.Latitude,
-                tweet.coordinates.Longitude
-              ),
-              tweet
+            const marker = this.addMarker(
+              tweet.coordinates.Latitude,
+              tweet.coordinates.Longitude
             );
+            marker.tweet = tweet;
+            this.addInfoWindow(marker);
           }
         });
         // Add a marker clusterer to manage the markers, if it doesn't exist.
@@ -125,6 +124,13 @@ const TweetMarkers = stampit({
         } else {
           this.clusterer.addMarkers(this.markers);
         }
+
+        // add event listener to show window when clicking on markers
+        window.google.maps.event.addListener(
+          this.clusterer,
+          "clusterclick",
+          cluster => {}
+        );
       } else {
         setTimeout(() => this.updateMarkers(tweets), 500);
       }

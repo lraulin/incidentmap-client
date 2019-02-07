@@ -1,22 +1,23 @@
 #!/usr/bin/env node
 
-const admin = require("firebase-admin");
-const serviceAccount = require("../incident-report-map-firebase-adminsdk-rx0ey-6ec9058686.json");
-const incidentTypes = require("../incidentTypes.js");
-const { twitterConfig } = require("../secrets.js");
-const { googleMapsApiKey } = require("../secrets.js");
+const incidentTypes = require("./incidentTypes.js");
+const serviceAccount = require("./firebase/incident-report-map-firebase-adminsdk-rx0ey-6ec9058686.json");
+const {
+  googleMapsApiKey,
+  twitterConfig,
+  postgresConfig
+} = require("./secrets.js");
 const Twitter = require("twitter");
 const axios = require("axios");
 const colors = require("colors");
-const { writeToFile } = require("../utils.js");
+const { writeToFile } = require("./utils.js");
 const stampit = require("@stamp/it");
-const compose = require("@stamp/compose");
+const Required = require("@stamp/required");
+const { postgresStamp } = require("./postgres/postgresStamp.js");
 
 const databaseURL = "https://incident-report-map.firebaseio.com";
 let searchString =
   "fatal crash,fatal car crash,fatal car accident,pedestrian killed,fatal truck accident,fatal truck crash,truck kill,bus kill,cyclist killed,bicyclist killed,pedestrian crash,pedestrian killed,bicyclist crash,bicyclist killed,cyclist crash,cyclist killed,truck crash,truck kill,fatal truck crash,fatal truck accident,bus crash,bus kill,transit crash,transit crash,transit kill,rail suicide,transit suicide,pipeline explosion,pipeline spills,hazardous spill,hazardous spills,train explosion,train explode,bike lane blocked,bus lane blocked,road closed,road closure,road flooded,road washed,bridge closed,bridge out,ran red light,blew red light,blew through red light,drone unauthorized";
-
-const Stamp = stampit();
 
 const createTwitter = stampit({
   props: {
@@ -24,33 +25,6 @@ const createTwitter = stampit({
   },
   init({ twitterConfig }) {
     this.twitterClient = new Twitter(twitterConfig);
-  }
-});
-
-const createFirebaseAdmin = stampit({
-  props: {
-    db: null
-  },
-  init({ serviceAccount, databaseURL }) {
-    const credential = admin.credential.cert(serviceAccount);
-    admin.initializeApp({ credential, databaseURL });
-    this.db = admin.database();
-  },
-  methods: {
-    // Save Tweet to Firebase, adding to tweets node with id_str as key
-    saveTweet(tweet) {
-      const datedTweet = { db_created: Date().toString(), ...tweet };
-      this.db
-        .ref("tweets")
-        .child(datedTweet.id_str)
-        .update(datedTweet, err => {
-          if (err) {
-            console.log(err);
-          } else {
-            console.log("Tweet added successfully!".green);
-          }
-        });
-    }
   }
 });
 
@@ -81,6 +55,8 @@ const hasGeocoder = stampit({
               Longitude: lng
             };
           } else {
+            console.log(res);
+            writeToFile(res, "geocoding.log");
             return null;
           }
         })
@@ -128,8 +104,7 @@ const hasTweetStreamer = stampit({
   props: {
     searchString: null
   },
-  init({ googleMapsApiKey, searchString }) {
-    this.googleMapsApiKey = googleMapsApiKey;
+  init({ searchString }) {
     this.searchString = searchString;
     this.start();
   },
@@ -162,7 +137,12 @@ const hasTweetStreamer = stampit({
         this.categorize(data);
         data = await this.localizeTweet(data);
         if (!data.coordinates) {
-          console.log("Geolocation failed. Discarding Tweet.".yellow);
+          if (data.user && data.user.location)
+            console.log(
+              `Geocoding for ${data.user.location} failed. Discarding Tweet.`
+                .yellow
+            );
+          else console.log("Geolocation failed. Discarding Tweet.".yellow);
           return;
         }
         this.saveTweet(data);
@@ -175,10 +155,7 @@ const hasTweetStreamer = stampit({
 
       stream.on("data", event => {
         console.log(event && event.text);
-        writeToFile(
-          `\nUTS: ${Date.now()}\n${JSON.stringify(event)}`,
-          "tweetStream.json"
-        );
+
         if (event.id_str) {
           this.processTweetStream(event);
         }
@@ -189,11 +166,11 @@ const hasTweetStreamer = stampit({
       });
     }
   }
-});
+}).compose(Required.required({ methods: { saveTweet: Required } }));
 
-const createIncidentTweetStreamer = compose(
+const createIncidentTweetStreamer = stampit(
   createTwitter,
-  createFirebaseAdmin,
+  postgresStamp,
   hasGeocoder,
   hasTweetStreamer
 );
@@ -203,5 +180,6 @@ createIncidentTweetStreamer({
   googleMapsApiKey,
   searchString,
   twitterConfig,
-  databaseURL
+  databaseURL,
+  ...postgresConfig
 });
