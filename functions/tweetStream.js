@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
 const { twitterConfig } = require("./secrets.js");
-const colors = require("colors");
+const colors = require("colors"); // eslint-disable-line
 const postgresModule = require("./postgres/postgresModule.js");
+const logger = require("./logger.js");
 
 const categorize = tweet => {
   const incidentTypes = require("./incidentTypes.js");
@@ -23,10 +24,10 @@ const categorize = tweet => {
 const processTweetStream = async data => {
   const findLocation = require("./findLocationModule.js");
   if (data.id_str) {
-    // if (data.user.verified === false) {
-    //   console.log("User not verified...discarding Tweet.".yellow);
-    //   return;
-    // }
+    if (data.user.verified === false) {
+      console.log("User not verified...discarding Tweet.".yellow);
+      return;
+    }
     if (data.retweeted_status) {
       console.log("Tweet is a retweet...discarding.".yellow);
       return;

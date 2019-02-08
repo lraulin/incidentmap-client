@@ -3,7 +3,6 @@ const { googleMapsApiKey } = require("./secrets.js");
 const { writeToFile } = require("./utils.js");
 
 module.exports = (() => {
-  console.log(googleMapsApiKey);
   const getGoogleMapsApiUrl = location =>
     `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(
       location
@@ -61,6 +60,7 @@ module.exports = (() => {
       } else {
         // something is weird
         // tweet has something for coordinates, but not what it should
+        console.log(tweet.coordinates);
         throw new TypeError("coordinates object has incorrect properties");
       }
     }
