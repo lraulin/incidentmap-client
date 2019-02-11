@@ -5,6 +5,16 @@ const colors = require("colors"); // eslint-disable-line
 const postgresModule = require("./postgres/postgresModule.js");
 const logger = require("./logger.js");
 
+const logWarn = str => {
+  console.log(str.yellow);
+  logger.warn(str);
+};
+
+const logVerbose = str => {
+  console.log(str);
+  logger.verbose(str);
+};
+
 const categorize = tweet => {
   const incidentTypes = require("./incidentTypes.js");
   if (!tweet.id_str) {
@@ -25,21 +35,23 @@ const processTweetStream = async data => {
   const findLocation = require("./findLocationModule.js");
   if (data.id_str) {
     if (data.user.verified === false) {
-      console.log("User not verified...discarding Tweet.".yellow);
+      logWarn("User not verified...discarding Tweet.");
       return;
     }
     if (data.retweeted_status) {
-      console.log("Tweet is a retweet...discarding.".yellow);
+      logWarn("Tweet is a retweet...discarding.");
       return;
     }
     categorize(data);
     data = await findLocation(data);
     if (!data.coordinates) {
-      if (data.user && data.user.location)
-        console.log(
-          `Geocoding for ${data.user.location} failed. Discarding Tweet.`.yellow
+      if (data.user && data.user.location) {
+        logWarn(
+          `Geocoding for ${data.user.location} failed. Discarding Tweet.`
         );
-      else console.log("Geolocation failed. Discarding Tweet.".yellow);
+      } else {
+        logWarn("Geolocation failed. Discarding Tweet.");
+      }
       return;
     }
     postgresModule.saveTweet(data);
@@ -57,7 +69,7 @@ const start = () => {
   });
 
   stream.on("data", event => {
-    console.log(event && event.text);
+    logVerbose(event && event.text);
     if (event.id_str) processTweetStream(event);
   });
 

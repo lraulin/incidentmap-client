@@ -3,6 +3,7 @@
 # API Keys
 secret*
 *adminsdk*
+*.pem
 
 # dependencies
 /node_modules

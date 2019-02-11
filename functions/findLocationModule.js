@@ -23,7 +23,7 @@ module.exports = (() => {
           };
         } else {
           console.log(res);
-          writeToFile(res, "./geocoding.log");
+          writeToFile(res.toString(), "./geocoding.log");
           return null;
         }
       })

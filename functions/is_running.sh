@@ -4,7 +4,10 @@
 # Check if script is running, and if not, start it.
 
 SCRIPT="tweetStream.js"
-DIR="/root/twitter_map_react/functions/"
+
+# Directory where this script is located. Should be same directory as SCRIPT.
+# Should work as long as the last component of the path used to find the script is not a symlink.
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 if [ -z "$(pgrep -fl $SCRIPT)" ]; then
     $DIR$SCRIPT
