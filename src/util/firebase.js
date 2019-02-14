@@ -1,23 +1,14 @@
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/database";
-import secrets from "../data/secrets";
-
-const config = {
-  apiKey: secrets.firebase.apiKey,
-  authDomain: "incident-report-map.firebaseapp.com",
-  databaseURL: "https://incident-report-map.firebaseio.com",
-  projectId: "incident-report-map",
-  storageBucket: "",
-  messagingSenderId: secrets.firebase.messagingSenderId
-};
-
-const { user, password } = secrets.firebase;
+import { firebaseConfig } from "../data/secrets";
 
 const myfirebase = async callback => {
   // Set up
-  firebase.initializeApp(config);
-  firebase.auth().signInWithEmailAndPassword(user, password);
+  firebase.initializeApp(firebaseConfig);
+  firebase
+    .auth()
+    .signInWithEmailAndPassword(firebaseConfig.user, firebaseConfig);
   firebase
     .database()
     .ref("tweets")

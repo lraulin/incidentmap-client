@@ -1,1 +1,0 @@
-mongoimport --host Cluster0-shard-0/cluster0-shard-00-00-ochku.mongodb.net:27017,cluster0-shard-00-01-ochku.mongodb.net:27017,cluster0-shard-00-02-ochku.mongodb.net:27017 --ssl --username tmadmin --password Dwp2v3hYAsdJKVpY --authenticationDatabase admin --db tweetmap --collection tweets --type json --file tweets_export_1549295200092.json

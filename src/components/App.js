@@ -1,16 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../styles/App.css";
-import myfirebase from "../util/firebase";
 import createIncidentMap from "../util/incident_map";
 import SearchPane from "./SearchPane";
 import TweetPane from "./TweetPane";
 import { compose, filter, into, takeLast, uniqBy } from "ramda";
-import secrets from "../data/secrets";
+import { googleMapsApiKey } from "../data/secrets";
 
 const AppContainer = () => {
   const [filteredTweets, setFilteredTweets] = useState([]);
   const mapRef = useRef(
-    createIncidentMap({ apiKey: secrets.googleMapsApiKey, divName: "myMap" })
+    createIncidentMap({ apiKey: googleMapsApiKey, divName: "myMap" })
   );
   const [filterSettings, setFilterSettings] = useState({
     text: "",
@@ -133,6 +132,17 @@ const AppContainer = () => {
     filterTweets();
   };
 
+  const fetchTweets = async () => {
+    let response = await fetch("http://localhost:3050/tweets");
+
+    if (response.status === 200) {
+      const tweets = await response.json();
+      console.log(tweets);
+      cacheTweets(tweets);
+      filterTweets({ tweets });
+    }
+  };
+
   // Initialization
   useEffect(() => {
     mapRef.current.initMap();
@@ -142,9 +152,7 @@ const AppContainer = () => {
       filterTweets({ tweets });
     }
 
-    // Wrap filterTweets so it can be passed as callback
-    const filterTweetsWithFilter = tweets => filterTweets({ tweets });
-    myfirebase(filterTweetsWithFilter);
+    fetchTweets().catch(e => console.log(e));
   }, []);
 
   return (

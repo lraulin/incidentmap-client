@@ -1,4 +1,4 @@
-import secrets from "../data/secrets";
+import { googleMapsApiKey } from "../data/secrets";
 import MarkerClusterer from "@google/markerclusterer";
 import React from "react";
 import ReactDOM from "react-dom";
@@ -36,9 +36,7 @@ const GoogleMap = stampit({
       } else {
         const script = document.createElement("script");
         script.type = "text/javascript";
-        script.src = `https://maps.google.com/maps/api/js?key=${
-          secrets.googleMapsApiKey
-        }`;
+        script.src = `https://maps.google.com/maps/api/js?key=${googleMapsApiKey}`;
         const body = document.getElementsByTagName("body")[0];
         body.appendChild(script);
         script.addEventListener("load", e => {
