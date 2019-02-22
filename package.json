@@ -40,7 +40,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "stop": "taskkill -F -IM node.exe",
-    "deploy": "npm run build && firebase deploy"
+    "deploy": "yarn build && aws s3 sync build/ s3://tweet-map8675309"
   },
   "eslintConfig": {
     "extends": "react-app"
