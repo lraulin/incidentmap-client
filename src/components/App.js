@@ -6,6 +6,8 @@ import TweetPane from "./TweetPane";
 import { compose, filter, into, takeLast, uniqBy } from "ramda";
 import { googleMapsApiKey } from "../data/secrets";
 
+const TWEET_URL = "http://ec2-3-93-147-139.compute-1.amazonaws.com/tweets";
+
 const AppContainer = () => {
   const [filteredTweets, setFilteredTweets] = useState([]);
   const mapRef = useRef(
@@ -133,7 +135,7 @@ const AppContainer = () => {
   };
 
   const fetchTweets = async () => {
-    let response = await fetch("http://localhost:3050/tweets");
+    let response = await fetch(TWEET_URL);
 
     if (response.status === 200) {
       const tweets = await response.json();
