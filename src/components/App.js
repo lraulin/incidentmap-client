@@ -1,18 +1,21 @@
 import React, { useState, useEffect, useRef } from "react";
-import "../styles/App.css";
-import createIncidentMap from "../util/incident_map";
+import createIncidentMap from "../incident_map";
 import SearchPane from "./SearchPane";
 import TweetPane from "./TweetPane";
 import { compose, filter, into, takeLast, uniqBy } from "ramda";
-import { googleMapsApiKey } from "../data/secrets";
+import { googleMapsApiKey } from "../secrets";
+import "../styles/App.css";
 
 const TWEET_URL = "http://ec2-3-93-147-139.compute-1.amazonaws.com/tweets";
 
 const AppContainer = () => {
-  const [filteredTweets, setFilteredTweets] = useState([]);
+  // Collection of Tweets matching selected criteria that will be displayed.
+  const [tweetPaneTweets, setTweetPaneTweets] = useState([]);
+  // Reference to module that handles map and markers.
   const mapRef = useRef(
     createIncidentMap({ apiKey: googleMapsApiKey, divName: "myMap" })
   );
+  // Values for form elements.
   const [filterSettings, setFilterSettings] = useState({
     text: "",
     startDate: null,
@@ -39,7 +42,9 @@ const AppContainer = () => {
   };
 
   const getTweetCache = () => {
-    return JSON.parse(localStorage.getItem("tweets"));
+    // Retrieve Tweets from cache and display on map if present.
+    const tweets = JSON.parse(localStorage.getItem("tweets"));
+    if (tweets) filterTweets({ tweets });
   };
 
   const changeFilterSettings = settings => {
@@ -60,6 +65,7 @@ const AppContainer = () => {
     incidentTypes = filterSettings.incidentTypes,
     tweets = getTweetCache() || {}
   }) => {
+    // Create collection of Tweets that match user settings and update markers.
     if (tweets === {} || !mapRef.current) {
       console.log("No tweets or map");
       return;
@@ -71,7 +77,7 @@ const AppContainer = () => {
     const tweetList = Object.values(tweets);
     console.log(`filtering ${tweetList.length} tweets`);
 
-    // Filters
+    // Predicates for filter callback--return true if condition is met.
     const notRetweet = t => !("retweeted_status" in t);
     const inDateRange = t => {
       if (startDate && endDate) {
@@ -103,7 +109,7 @@ const AppContainer = () => {
       }
     };
 
-    // Apply filters if applicable.
+    // Combine filters with compose.
     const tweetFilter = compose(
       filter(notRetweet),
       filter(inDateRange),
@@ -111,20 +117,22 @@ const AppContainer = () => {
       filter(hasTypes)
     );
 
-    // Dedup
+    // Remove identical tweets even if urls contained in text field differ.
     const justText = text => text.slice(0, text.indexOf(" http"));
     const filteredTweets = uniqBy(
       t => justText(t.text),
       into([], tweetFilter, tweetList)
     );
 
-    const top7 = takeLast(7, filteredTweets);
-    if (top7.length && top7[top7.length - 1].db_created)
-      console.log(top7[top7.length - 1].db_created);
-    setFilteredTweets(top7);
+    // Update the map to show positions for filtered Tweets.
     mapRef.current.updateMarkers(filteredTweets);
+
+    // Get an array of most recent 7 Tweets to display in TweetPane.
+    const top7 = takeLast(7, filteredTweets);
+    setTweetPaneTweets(top7);
   };
 
+  // Clear form fields and update markers.
   const resetFilter = () => {
     const incidentTypes = filter.incidentTypes;
     Object.keys(incidentTypes).forEach(key => (incidentTypes[key] = false));
@@ -134,12 +142,13 @@ const AppContainer = () => {
     filterTweets();
   };
 
+  // Get data from database
   const fetchTweets = async () => {
-    let response = await fetch(TWEET_URL);
+    const response = await fetch(TWEET_URL);
 
     if (response.status === 200) {
       const tweets = await response.json();
-      console.log(tweets);
+      // Cache tweets in localStorage.
       cacheTweets(tweets);
       filterTweets({ tweets });
     }
@@ -147,13 +156,11 @@ const AppContainer = () => {
 
   // Initialization
   useEffect(() => {
+    // Initialize the map.
     mapRef.current.initMap();
-
-    const tweets = getTweetCache();
-    if (tweets) {
-      filterTweets({ tweets });
-    }
-
+    // Display tweets from cache on map if present.
+    getTweetCache();
+    // Get data from database and update map.
     fetchTweets().catch(e => console.log(e));
   }, []);
 
@@ -177,12 +184,13 @@ const AppContainer = () => {
             <div className="collapse show" id="collapseExampl">
               <div className="card card-body" style={{ height: "100%" }}>
                 <SearchPane
-                  filteredTweets={filteredTweets}
+                  filteredTweets={tweetPaneTweets}
                   filterTweets={filterTweets}
                   toggleCheckBox={toggleCheckBox}
                   resetFilter={resetFilter}
                   filterSettings={filterSettings}
                   setFilterSettings={changeFilterSettings}
+                  incidentTypeList={Object.keys(filterSettings.incidentTypes)}
                 />
               </div>
             </div>
@@ -197,7 +205,7 @@ const AppContainer = () => {
             className="col-sm-3 d-none d-lg-block"
             style={{ height: "100vh" }}
           >
-            <TweetPane filteredTweets={filteredTweets} />
+            <TweetPane filteredTweets={tweetPaneTweets} />
           </div>
         </div>
       </div>

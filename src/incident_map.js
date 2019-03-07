@@ -1,8 +1,8 @@
-import { googleMapsApiKey } from "../data/secrets";
+import { googleMapsApiKey } from "./secrets";
 import MarkerClusterer from "@google/markerclusterer";
 import React from "react";
 import ReactDOM from "react-dom";
-import InfoWindow from "../components/InfoWindow";
+import InfoWindow from "./components/InfoWindow";
 import stampit from "@stamp/it";
 
 const GoogleMap = stampit({

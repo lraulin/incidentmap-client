@@ -1,19 +1,24 @@
 import React from "react";
-import incidentTypes from "../data/incidents";
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import Checkbox from "./Checkbox";
+import "react-datepicker/dist/react-datepicker.css";
 
 const containerStyle = {
   textAlign: "left"
 };
+
 const buttonStyle = {
   letterSpacing: ".2em",
   marginRight: "10px",
   width: 75
 };
 
-const SearchPane = ({ toggleCheckBox, filterSettings, setFilterSettings }) => {
+const SearchPane = ({
+  toggleCheckBox,
+  filterSettings,
+  setFilterSettings,
+  incidentTypeList
+}) => {
   return (
     <div style={containerStyle}>
       <section id="typeFilterSection" style={{ marginBottom: 10 }}>
@@ -24,8 +29,8 @@ const SearchPane = ({ toggleCheckBox, filterSettings, setFilterSettings }) => {
           name="selectAll"
           style={buttonStyle}
           onClick={() => {
-            Object.keys(filterSettings.incidentTypes).forEach(
-              k => (filterSettings.incidentTypes[k] = true)
+            incidentTypeList.forEach(
+              key => (filterSettings.incidentTypes[key] = true)
             );
             setFilterSettings(filterSettings);
           }}
@@ -37,8 +42,8 @@ const SearchPane = ({ toggleCheckBox, filterSettings, setFilterSettings }) => {
           name="selectNone"
           style={buttonStyle}
           onClick={() => {
-            Object.keys(filterSettings.incidentTypes).forEach(
-              k => (filterSettings.incidentTypes[k] = false)
+            incidentTypeList.forEach(
+              key => (filterSettings.incidentTypes[key] = false)
             );
             setFilterSettings(filterSettings);
           }}
@@ -46,7 +51,7 @@ const SearchPane = ({ toggleCheckBox, filterSettings, setFilterSettings }) => {
           None
         </button>
         <br />
-        {incidentTypes.map(item => (
+        {incidentTypeList.map(item => (
           <React.Fragment key={item.id}>
             <Checkbox
               type="checkbox"
