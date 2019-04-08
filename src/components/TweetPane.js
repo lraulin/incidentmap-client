@@ -1,11 +1,10 @@
 import React from "react";
-import Tweet from "react-tweet";
-import { className } from "postcss-selector-parser";
+import TweetEmbed from "react-tweet-embed";
 import ReactScrollbar from "react-scrollbar";
 
 const myScrollbar = {
   // width: 400,
-  height: 850
+  height: 850,
 };
 
 const TweetPane = ({ filteredTweets, ...props }) => {
@@ -14,14 +13,7 @@ const TweetPane = ({ filteredTweets, ...props }) => {
       {filteredTweets &&
         filteredTweets
           .reverse()
-          .map(tweet => (
-            <Tweet
-              className={className}
-              data={tweet}
-              linkProps={{ target: "_blank", rel: "noreferrer" }}
-              key={tweet.id_str}
-            />
-          ))}
+          .map(tweet => <TweetEmbed id={tweet.id_str} key={tweet.id_str} />)}
     </ReactScrollbar>
   );
 };

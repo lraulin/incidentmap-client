@@ -4,20 +4,20 @@ import Checkbox from "./Checkbox";
 import "react-datepicker/dist/react-datepicker.css";
 
 const containerStyle = {
-  textAlign: "left"
+  textAlign: "left",
 };
 
 const buttonStyle = {
   letterSpacing: ".2em",
   marginRight: "10px",
-  width: 75
+  width: 75,
 };
 
 const SearchPane = ({
   toggleCheckBox,
   filterSettings,
   setFilterSettings,
-  incidentTypeList
+  incidentTypeList,
 }) => {
   return (
     <div style={containerStyle}>
@@ -30,7 +30,7 @@ const SearchPane = ({
           style={buttonStyle}
           onClick={() => {
             incidentTypeList.forEach(
-              key => (filterSettings.incidentTypes[key] = true)
+              key => (filterSettings.incidentTypes[key] = true),
             );
             setFilterSettings(filterSettings);
           }}
@@ -43,7 +43,7 @@ const SearchPane = ({
           style={buttonStyle}
           onClick={() => {
             incidentTypeList.forEach(
-              key => (filterSettings.incidentTypes[key] = false)
+              key => (filterSettings.incidentTypes[key] = false),
             );
             setFilterSettings(filterSettings);
           }}
@@ -51,18 +51,21 @@ const SearchPane = ({
           None
         </button>
         <br />
-        {incidentTypeList.map(item => (
-          <React.Fragment key={item.id}>
-            <Checkbox
-              type="checkbox"
-              name={item.id}
-              checked={filterSettings.incidentTypes[item.id]}
-              toggleCheckBox={toggleCheckBox}
-              displayName={item.displayName}
-            />
-            <br />
-          </React.Fragment>
-        ))}
+        {incidentTypeList.map(item => {
+          console.log(incidentTypeList);
+          return (
+            <React.Fragment key={item.id}>
+              <Checkbox
+                type="checkbox"
+                name={item.id}
+                checked={filterSettings.incidentTypes[item.id]}
+                toggleCheckBox={toggleCheckBox}
+                displayName={item.displayName}
+              />
+              <br />
+            </React.Fragment>
+          );
+        })}
       </section>
       <section id="dateFilterSection">
         <strong>Filter by Date</strong>

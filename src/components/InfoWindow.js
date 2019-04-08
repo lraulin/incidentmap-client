@@ -1,5 +1,5 @@
 import React from "react";
-import Tweet from "react-tweet";
+import TweetEmbed from "react-tweet-embed";
 import { className } from "postcss-selector-parser";
 import PropTypes from "prop-types";
 
@@ -9,18 +9,11 @@ const InfoWindow = ({ tweet, ...props }) => {
   } else if (!("urls" in tweet.entities)) {
     tweet.entities.urls = [];
   }
-  return (
-    <Tweet
-      className={className}
-      data={tweet}
-      linkProps={{ target: "_blank", rel: "noreferrer" }}
-      key={tweet.id_str}
-    />
-  );
+  return <TweetEmbed id={tweet.id_str} key={tweet.id_str} />;
 };
 
 InfoWindow.propTypes = {
-  tweet: PropTypes.object
+  tweet: PropTypes.object,
 };
 
 export default InfoWindow;
