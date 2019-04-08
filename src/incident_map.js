@@ -1,5 +1,5 @@
 import { googleMapsApiKey } from "./secrets";
-import MarkerClusterer from "@google/markerclusterer";
+import MarkerClusterer from "@google/markerclustererplus";
 import React from "react";
 import ReactDOM from "react-dom";
 import InfoWindow from "./components/InfoWindow";
@@ -87,7 +87,7 @@ const TweetMarkers = stampit({
       });
       infoWindow.addListener("domready", e =>
         ReactDOM.render(
-          <InfoWindow tweet={marker.tweet} />,
+          <InfoWindow tweets={[marker.tweet]} />,
           document.getElementById(`infoWindow${marker.tweet.id_str}`),
         ),
       );
@@ -96,6 +96,23 @@ const TweetMarkers = stampit({
         infoWindow.open(this.map, marker);
         this.lastInfoWindow = infoWindow;
       });
+    },
+    addClusterWindow(cluster) {
+      // Create unique id for cluster by combining lat & lng
+      const id =
+        "L" + cluster.getCenter().lat() + "G" + cluster.getCenter().lng();
+      const infoWindow = new window.google.maps.InfoWindow({
+        content: `<div id="infoWindow${id}" />`,
+      });
+      console.log(cluster);
+      const tweets = cluster.getMarkers().map(marker => marker.tweet);
+      infoWindow.addListener("domready", e =>
+        ReactDOM.render(
+          <InfoWindow tweets={tweets} />,
+          document.getElementById(`infoWindow${id}`),
+        ),
+      );
+      return infoWindow;
     },
     updateMarkers(tweets) {
       if (window.google && this.map) {
@@ -121,6 +138,7 @@ const TweetMarkers = stampit({
           this.clusterer = new MarkerClusterer(this.map, this.markers, {
             imagePath:
               "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
+            zoomOnClick: false,
           });
           this.clusterer.addMarkers(this.markers);
         } else {
@@ -131,7 +149,11 @@ const TweetMarkers = stampit({
         window.google.maps.event.addListener(
           this.clusterer,
           "clusterclick",
-          cluster => {},
+          cluster => {
+            if (this.lastInfoWindow) this.lastInfoWindow.close();
+            this.infoWindow = this.addClusterWindow(cluster);
+            this.infoWindow.open(this.map);
+          },
         );
       } else {
         setTimeout(() => this.updateMarkers(tweets), 500);

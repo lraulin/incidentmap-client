@@ -1,7 +1,7 @@
 dependencies:
   '@babel/runtime': 7.2.0
   '@google/maps': 0.5.5
-  '@google/markerclusterer': 1.0.3
+  '@google/markerclustererplus': 2.1.11
   '@stamp/it': 1.1.0
   bootstrap: 4.3.1
   geocoder: 0.2.3
@@ -1496,10 +1496,10 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-RSZriyE2XViVhXgdEcQaEu3jMYh2A/jS0VahLHXqGO0VfPyEbDac4PAn7/hBJiTavWpxchKfe5OI9inJofFWxA==
-  /@google/markerclusterer/1.0.3:
+  /@google/markerclustererplus/2.1.11:
     dev: false
     resolution:
-      integrity: sha512-/fRbSPyQKnm43zRnoyMerbiGS3vG3WkZiLgpBF3ovoLO84sKhEAzKMVcyozy/khEHlZoMJ9Axkr0NRVJRAQhcg==
+      integrity: sha512-B1w3TKgu1MRTJq7VXUv3JUxAd69qHROIg2tODPjQA7tjKvu4K7pCdPduE6Xu9Mfb5syhOH77BWGHqFYy7MgjCw==
   /@mapbox/point-geometry/0.1.0:
     dev: false
     resolution:
@@ -11964,7 +11964,7 @@ packages:
 specifiers:
   '@babel/runtime': 7.2.0
   '@google/maps': ^0.5.5
-  '@google/markerclusterer': ^1.0.3
+  '@google/markerclustererplus': ^2.1.11
   '@stamp/it': 1.1.0
   bootstrap: ^4.1.3
   eslint-config-prettier: 4.1.0

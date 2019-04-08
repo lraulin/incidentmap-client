@@ -2,7 +2,6 @@ import React from "react";
 import DatePicker from "react-datepicker";
 import Checkbox from "./Checkbox";
 import "react-datepicker/dist/react-datepicker.css";
-import { string } from "postcss-selector-parser";
 
 // Convert camelCase string to Title Case
 const camelToTitle = stringValue => {

@@ -6,6 +6,8 @@ import { compose, filter, into, takeLast, uniqBy } from "ramda";
 import { googleMapsApiKey } from "../secrets";
 import "../styles/App.css";
 
+import mockDatabase from "../incident-report-map-export";
+
 const TWEET_URL = "http://ec2-3-93-147-139.compute-1.amazonaws.com/tweets";
 
 const AppContainer = () => {
@@ -13,7 +15,7 @@ const AppContainer = () => {
   const [tweetPaneTweets, setTweetPaneTweets] = useState([]);
   // Reference to module that handles map and markers.
   const mapRef = useRef(
-    createIncidentMap({ apiKey: googleMapsApiKey, divName: "myMap" })
+    createIncidentMap({ apiKey: googleMapsApiKey, divName: "myMap" }),
   );
   // Values for form elements.
   const [filterSettings, setFilterSettings] = useState({
@@ -33,8 +35,8 @@ const AppContainer = () => {
       rail: true,
       road: true,
       unsafe: true,
-      drone: true
-    }
+      drone: true,
+    },
   });
 
   const cacheTweets = tweets => {
@@ -44,7 +46,11 @@ const AppContainer = () => {
   const getTweetCache = () => {
     // Retrieve Tweets from cache and display on map if present.
     const tweets = JSON.parse(localStorage.getItem("tweets"));
-    if (tweets) filterTweets({ tweets });
+    if (tweets && Object.keys(tweets).length) {
+      filterTweets({ tweets });
+    } else if (process.env.NODE_ENV === "development") {
+      filterTweets({ tweets: mockDatabase.tweets });
+    }
   };
 
   const changeFilterSettings = settings => {
@@ -63,7 +69,7 @@ const AppContainer = () => {
     startDate = filterSettings.startDate,
     endDate = filterSettings.endDate,
     incidentTypes = filterSettings.incidentTypes,
-    tweets = getTweetCache() || {}
+    tweets = getTweetCache() || {},
   }) => {
     // Create collection of Tweets that match user settings and update markers.
     if (tweets === {} || !mapRef.current) {
@@ -72,7 +78,7 @@ const AppContainer = () => {
     }
     cacheTweets(tweets);
     const selectedTypes = Object.keys(incidentTypes).filter(
-      key => incidentTypes[key]
+      key => incidentTypes[key],
     );
     const tweetList = Object.values(tweets);
     console.log(`filtering ${tweetList.length} tweets`);
@@ -115,14 +121,14 @@ const AppContainer = () => {
       filter(notRetweet),
       filter(inDateRange),
       filter(matchesText),
-      filter(hasTypes)
+      filter(hasTypes),
     );
 
     // Remove identical tweets even if urls contained in text field differ.
     const justText = text => text.slice(0, text.indexOf(" http"));
     const filteredTweets = uniqBy(
       t => justText(t.text),
-      into([], tweetFilter, tweetList)
+      into([], tweetFilter, tweetList),
     );
 
     // Update the map to show positions for filtered Tweets.

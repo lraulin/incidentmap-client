@@ -5,7 +5,7 @@
   "dependencies": {
     "@babel/runtime": "7.2.0",
     "@google/maps": "^0.5.5",
-    "@google/markerclusterer": "^1.0.3",
+    "@google/markerclustererplus": "^2.1.11",
     "@stamp/it": "1.1.0",
     "bootstrap": "^4.1.3",
     "geocoder": "^0.2.3",
