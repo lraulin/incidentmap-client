@@ -5,23 +5,27 @@ import ReactDOM from "react-dom";
 import InfoWindow from "./components/InfoWindow";
 import stampit from "@stamp/it";
 
+// Convert camelCase string to Title Case
+const camelToTitle = stringValue =>
+  stringValue.replace(/([A-Z]+)/g, " $1").replace(/([A-Z][a-z])/g, " $1");
+
 const GoogleMap = stampit({
   props: {
     apiKey: null,
     center: {
       lat: 39.8283,
-      lng: -98.5795
+      lng: -98.5795,
     },
     zoom: 4,
     divName: "map",
-    map: null
+    map: null,
   },
   init({
     apiKey,
     lat = this.center.lat,
     lng = this.center.lng,
     zoom = this.zoom,
-    divName = this.divName
+    divName = this.divName,
   }) {
     this.apiKey = apiKey;
     this.center.lat = lat;
@@ -48,16 +52,16 @@ const GoogleMap = stampit({
       const div = document.getElementById(this.divName);
       this.map = new window.google.maps.Map(div, {
         center: this.center,
-        zoom: this.zoom
+        zoom: this.zoom,
       });
-    }
-  }
+    },
+  },
 });
 
 const WithMarkerClusterer = stampit({
   props: {
     markers: [],
-    clusterer: null
+    clusterer: null,
   },
   init({ tweets = null }) {
     if (tweets && tweets.length) {
@@ -67,25 +71,25 @@ const WithMarkerClusterer = stampit({
   methods: {
     addMarker(lat, lng) {
       const marker = new window.google.maps.Marker({
-        position: { lat, lng }
+        position: { lat, lng },
       });
       this.markers.push(marker);
       return marker;
-    }
-  }
+    },
+  },
 });
 
 const TweetMarkers = stampit({
   methods: {
     addInfoWindow(marker) {
       const infoWindow = new window.google.maps.InfoWindow({
-        content: `<div id="infoWindow${marker.tweet.id_str}" />`
+        content: `<div id="infoWindow${marker.tweet.id_str}" />`,
       });
       infoWindow.addListener("domready", e =>
         ReactDOM.render(
           <InfoWindow tweet={marker.tweet} />,
-          document.getElementById(`infoWindow${marker.tweet.id_str}`)
-        )
+          document.getElementById(`infoWindow${marker.tweet.id_str}`),
+        ),
       );
       marker.addListener("click", () => {
         if (this.lastInfoWindow) this.lastInfoWindow.close();
@@ -106,7 +110,7 @@ const TweetMarkers = stampit({
           if ("coordinates" in tweet) {
             const marker = this.addMarker(
               tweet.coordinates.Latitude,
-              tweet.coordinates.Longitude
+              tweet.coordinates.Longitude,
             );
             marker.tweet = tweet;
             this.addInfoWindow(marker);
@@ -116,7 +120,7 @@ const TweetMarkers = stampit({
         if (!this.clusterer) {
           this.clusterer = new MarkerClusterer(this.map, this.markers, {
             imagePath:
-              "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m"
+              "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
           });
           this.clusterer.addMarkers(this.markers);
         } else {
@@ -127,19 +131,19 @@ const TweetMarkers = stampit({
         window.google.maps.event.addListener(
           this.clusterer,
           "clusterclick",
-          cluster => {}
+          cluster => {},
         );
       } else {
         setTimeout(() => this.updateMarkers(tweets), 500);
       }
-    }
-  }
+    },
+  },
 });
 
 const createIncidentMap = stampit.compose(
   GoogleMap,
   WithMarkerClusterer,
-  TweetMarkers
+  TweetMarkers,
 );
 
 export default createIncidentMap;

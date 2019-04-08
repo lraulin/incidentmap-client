@@ -2,6 +2,15 @@ import React from "react";
 import DatePicker from "react-datepicker";
 import Checkbox from "./Checkbox";
 import "react-datepicker/dist/react-datepicker.css";
+import { string } from "postcss-selector-parser";
+
+// Convert camelCase string to Title Case
+const camelToTitle = stringValue => {
+  stringValue = stringValue[0].toUpperCase() + stringValue.slice(1);
+  return stringValue
+    .replace(/([A-Z]+)/g, " $1")
+    .replace(/([A-Z][a-z])/g, " $1");
+};
 
 const containerStyle = {
   textAlign: "left",
@@ -51,21 +60,18 @@ const SearchPane = ({
           None
         </button>
         <br />
-        {incidentTypeList.map(item => {
-          console.log(incidentTypeList);
-          return (
-            <React.Fragment key={item.id}>
-              <Checkbox
-                type="checkbox"
-                name={item.id}
-                checked={filterSettings.incidentTypes[item.id]}
-                toggleCheckBox={toggleCheckBox}
-                displayName={item.displayName}
-              />
-              <br />
-            </React.Fragment>
-          );
-        })}
+        {incidentTypeList.map(type => (
+          <React.Fragment key={type}>
+            <Checkbox
+              type="checkbox"
+              name={type}
+              checked={filterSettings.incidentTypes[type]}
+              toggleCheckBox={toggleCheckBox}
+              displayName={camelToTitle(type)}
+            />
+            <br />
+          </React.Fragment>
+        ))}
       </section>
       <section id="dateFilterSection">
         <strong>Filter by Date</strong>
