@@ -1,5 +1,8 @@
 import { combineReducers } from "redux";
-import visibilityFilter from "./visibilityFilter";
-import tweets from "./tweets";
+import filterReducer from "./filterReducer";
+import tweetReducer from "./tweetReducer";
 
-export default combineReducers({ tweets, visibilityFilter });
+export default combineReducers({
+  tweetReducer,
+  filterReducer,
+});

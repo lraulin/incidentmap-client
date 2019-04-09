@@ -111,12 +111,16 @@ const TweetMarkers = stampit({
       return infoWindow;
     },
     updateMarkers(tweets) {
+      console.log(`Adding ${tweets.length} tweets to the map`);
       if (window.google && this.map) {
         // remove previous markers, if any
-        if (this.markers.length && this.clusterer) {
-          this.clusterer.clearMarkers();
+        if (this.clusterer) this.clusterer.clearMarkers();
+        if (this.markers.length) {
+          this.markers.forEach(marker => marker.setMap(null));
+          this.markers = [];
         }
 
+        // Now that the map is cleared, if there are no tweets to add, we are done.
         if (tweets.length === 0) return;
 
         tweets.forEach(tweet => {
@@ -129,6 +133,7 @@ const TweetMarkers = stampit({
             this.addInfoWindow(marker);
           }
         });
+
         // Add a marker clusterer to manage the markers, if it doesn't exist.
         if (!this.clusterer) {
           this.clusterer = new MarkerClusterer(this.map, this.markers, {

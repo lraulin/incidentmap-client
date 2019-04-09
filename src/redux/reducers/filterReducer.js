@@ -19,14 +19,17 @@ const initialState = {
   },
 };
 
-const visibilityFilter = (state = initialState, action) => {
+const filterReducer = (state = initialState, action) => {
   switch (action.type) {
     case "SET_FILTER": {
       return action.filter;
+    }
+    case "RESET_FILTER": {
+      return initialState;
     }
     default:
       return state;
   }
 };
 
-export default visibilityFilter;
+export default filterReducer;

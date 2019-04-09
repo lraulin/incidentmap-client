@@ -3,34 +3,35 @@ import DatePicker from "react-datepicker";
 import Checkbox from "./Checkbox";
 import { connect } from "react-redux";
 import "react-datepicker/dist/react-datepicker.css";
-import { setFilter } from "../redux/actions";
+import { setFilter, resetFilter } from "../redux/actions";
 
 const mapStateToProps = state => ({
   filterSettings: {
-    text: state.visibilityFilter.text,
-    startDate: state.visibilityFilter.startDate,
-    endDate: state.visibilityFilter.startDate,
+    text: state.filterReducer.text,
+    startDate: state.filterReducer.startDate,
+    endDate: state.filterReducer.startDate,
     incidentTypes: {
-      fatalCrash: state.visibilityFilter.incidentTypes.fatalCrash,
-      pedestrianCrash: state.visibilityFilter.incidentTypes.pedestrianCrash,
-      cyclistCrash: state.visibilityFilter.incidentTypes.cyclistCrash,
-      truckCrash: state.visibilityFilter.incidentTypes.truckCrash,
-      busCrash: state.visibilityFilter.incidentTypes.busCrash,
-      transitCrash: state.visibilityFilter.incidentTypes.transitCrash,
-      transSuicide: state.visibilityFilter.incidentTypes.transSuicide,
-      pipeline: state.visibilityFilter.incidentTypes.pipeline,
-      hazmat: state.visibilityFilter.incidentTypes.hazmat,
-      rail: state.visibilityFilter.incidentTypes.rail,
-      road: state.visibilityFilter.incidentTypes.road,
-      unsafe: state.visibilityFilter.incidentTypes.unsafe,
-      drone: state.visibilityFilter.incidentTypes.drone,
+      fatalCrash: state.filterReducer.incidentTypes.fatalCrash,
+      pedestrianCrash: state.filterReducer.incidentTypes.pedestrianCrash,
+      cyclistCrash: state.filterReducer.incidentTypes.cyclistCrash,
+      truckCrash: state.filterReducer.incidentTypes.truckCrash,
+      busCrash: state.filterReducer.incidentTypes.busCrash,
+      transitCrash: state.filterReducer.incidentTypes.transitCrash,
+      transSuicide: state.filterReducer.incidentTypes.transSuicide,
+      pipeline: state.filterReducer.incidentTypes.pipeline,
+      hazmat: state.filterReducer.incidentTypes.hazmat,
+      rail: state.filterReducer.incidentTypes.rail,
+      road: state.filterReducer.incidentTypes.road,
+      unsafe: state.filterReducer.incidentTypes.unsafe,
+      drone: state.filterReducer.incidentTypes.drone,
     },
   },
-  incidentTypeList: Object.keys(state.visibilityFilter.incidentTypes),
+  incidentTypeList: Object.keys(state.filterReducer.incidentTypes),
 });
 
 const mapDispatchToProps = dispatch => ({
   setFilterSettings: filter => dispatch(setFilter(filter)),
+  resetFilterSettings: () => dispatch(resetFilter()),
 });
 
 // Convert camelCase string to Title Case
@@ -54,6 +55,7 @@ const buttonStyle = {
 const SearchPane = ({
   filterSettings,
   setFilterSettings,
+  resetFilterSettings,
   incidentTypeList,
 }) => {
   const toggleCheckBox = name => {
@@ -143,7 +145,7 @@ const SearchPane = ({
         <button
           className="btn btn-danger"
           name="reset"
-          onClick={() => setFilterSettings()}
+          onClick={resetFilterSettings}
         >
           Reset
         </button>

@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware } from "redux";
 import rootReducer from "./reducers";
 import createIncidentMap from "../incident_map";
-import { getTweetsByVisibilityFilter } from "./selectors";
+import { getVisibleTweetList } from "./selectors";
 import { googleMapsApiKey } from "../secrets";
 
 const incidentMap = createIncidentMap();
@@ -15,15 +15,16 @@ const logger = store => next => action => {
 };
 
 const mapMiddleware = store => next => action => {
-  if (action.type === "SET_FILTER" || action.type === "UPDATE_TWEETS") {
+  if (
+    action.type === "SET_FILTER" ||
+    action.type === "RESET_FILTER" ||
+    action.type === "UPDATE_TWEETS"
+  ) {
     console.log(`Map: Action Type: ${action.type}`);
     const result = next(action);
     const state = store.getState();
-    const filteredTweets = getTweetsByVisibilityFilter(
-      state.tweets.allIds,
-      state.visibilityFilter,
-    );
-    incidentMap.updateMarkers(filteredTweets);
+    const visibleTweetList = getVisibleTweetList(state);
+    incidentMap.updateMarkers(visibleTweetList);
     return result;
   } else {
     return next(action);
