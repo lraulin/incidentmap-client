@@ -5,10 +5,6 @@ import ReactDOM from "react-dom";
 import InfoWindow from "./components/InfoWindow";
 import stampit from "@stamp/it";
 
-// Convert camelCase string to Title Case
-const camelToTitle = stringValue =>
-  stringValue.replace(/([A-Z]+)/g, " $1").replace(/([A-Z][a-z])/g, " $1");
-
 const GoogleMap = stampit({
   props: {
     apiKey: null,

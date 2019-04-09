@@ -1,7 +1,37 @@
 import React from "react";
 import DatePicker from "react-datepicker";
 import Checkbox from "./Checkbox";
+import { connect } from "react-redux";
 import "react-datepicker/dist/react-datepicker.css";
+import { setFilter } from "../redux/actions";
+
+const mapStateToProps = state => ({
+  filterSettings: {
+    text: state.visibilityFilter.text,
+    startDate: state.visibilityFilter.startDate,
+    endDate: state.visibilityFilter.startDate,
+    incidentTypes: {
+      fatalCrash: state.visibilityFilter.incidentTypes.fatalCrash,
+      pedestrianCrash: state.visibilityFilter.incidentTypes.pedestrianCrash,
+      cyclistCrash: state.visibilityFilter.incidentTypes.cyclistCrash,
+      truckCrash: state.visibilityFilter.incidentTypes.truckCrash,
+      busCrash: state.visibilityFilter.incidentTypes.busCrash,
+      transitCrash: state.visibilityFilter.incidentTypes.transitCrash,
+      transSuicide: state.visibilityFilter.incidentTypes.transSuicide,
+      pipeline: state.visibilityFilter.incidentTypes.pipeline,
+      hazmat: state.visibilityFilter.incidentTypes.hazmat,
+      rail: state.visibilityFilter.incidentTypes.rail,
+      road: state.visibilityFilter.incidentTypes.road,
+      unsafe: state.visibilityFilter.incidentTypes.unsafe,
+      drone: state.visibilityFilter.incidentTypes.drone,
+    },
+  },
+  incidentTypeList: Object.keys(state.visibilityFilter.incidentTypes),
+});
+
+const mapDispatchToProps = dispatch => ({
+  setFilterSettings: filter => dispatch(setFilter(filter)),
+});
 
 // Convert camelCase string to Title Case
 const camelToTitle = stringValue => {
@@ -22,11 +52,14 @@ const buttonStyle = {
 };
 
 const SearchPane = ({
-  toggleCheckBox,
   filterSettings,
   setFilterSettings,
   incidentTypeList,
 }) => {
+  const toggleCheckBox = name => {
+    filterSettings.incidentTypes[name] = !filterSettings.incidentTypes[name];
+    setFilterSettings(filterSettings);
+  };
   return (
     <div style={containerStyle}>
       <section id="typeFilterSection" style={{ marginBottom: 10 }}>
@@ -106,8 +139,20 @@ const SearchPane = ({
         />
         <br />
       </section>
+      <section id="resetButtonSection">
+        <button
+          className="btn btn-danger"
+          name="reset"
+          onClick={() => setFilterSettings()}
+        >
+          Reset
+        </button>
+      </section>
     </div>
   );
 };
 
-export default SearchPane;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(SearchPane);

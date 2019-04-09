@@ -1,6 +1,5 @@
 import React from "react";
 import TweetEmbed from "react-tweet-embed";
-import { className } from "postcss-selector-parser";
 import PropTypes from "prop-types";
 
 const InfoWindow = ({ tweets, ...props }) => (
