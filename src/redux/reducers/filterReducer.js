@@ -1,4 +1,4 @@
-const initialState = {
+export const initialState = {
   text: "",
   startDate: null,
   endDate: null,
@@ -25,7 +25,7 @@ const filterReducer = (state = initialState, action) => {
       return action.filter;
     }
     case "RESET_FILTER": {
-      return initialState;
+      return action.filter;
     }
     default:
       return state;

@@ -2,7 +2,6 @@ import { createStore, applyMiddleware } from "redux";
 import rootReducer from "./reducers";
 import { updateMarkers } from "../incidentMap";
 import { getVisibleTweetList, getTweetDict } from "./selectors";
-import { googleMapsApiKey } from "../secrets";
 
 const logger = store => next => action => {
   console.log("dispatching", action);

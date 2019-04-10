@@ -20,6 +20,12 @@ let googleMap = null;
 let clusterer = null;
 let currentInfoWindow = null;
 
+// Load map when DOM is ready
+const onScriptLoad = () => {
+  const div = document.getElementById(divName);
+  googleMap = new window.google.maps.Map(div, defaultMapOptions);
+};
+
 // Add script to map with listener to load map when ready
 if (window.google) {
   onScriptLoad();
@@ -33,12 +39,6 @@ if (window.google) {
     onScriptLoad();
   });
 }
-
-// Load map when DOM is ready
-const onScriptLoad = () => {
-  const div = document.getElementById(divName);
-  googleMap = new window.google.maps.Map(div, defaultMapOptions);
-};
 
 // Add marker to map
 const addMarker = (lat, lng) => {
