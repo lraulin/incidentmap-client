@@ -3,7 +3,6 @@ import MarkerClusterer from "@google/markerclustererplus";
 import React from "react";
 import ReactDOM from "react-dom";
 import InfoWindow from "./components/InfoWindow";
-import stampit from "@stamp/it";
 
 // Constants
 const divName = "map";
@@ -72,17 +71,23 @@ const addInfoWindow = marker => {
 const addClusterWindow = cluster => {
   // Create unique id for cluster by combining lat & lng
   const id = "L" + cluster.getCenter().lat() + "G" + cluster.getCenter().lng();
+
+  // Create the infowindow
   const infoWindow = new window.google.maps.InfoWindow({
     content: `<div id="infoWindow${id}" />`,
   });
-  console.log(cluster);
+
+  // Get tweets in cluster
   const tweets = cluster.getMarkers().map(marker => marker.tweet);
+
+  // Render the infowindow
   infoWindow.addListener("domready", e =>
     ReactDOM.render(
       <InfoWindow tweets={tweets} />,
       document.getElementById(`infoWindow${id}`),
     ),
   );
+
   return infoWindow;
 };
 
