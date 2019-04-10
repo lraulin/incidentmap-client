@@ -1,11 +1,8 @@
 import { createStore, applyMiddleware } from "redux";
 import rootReducer from "./reducers";
-import createIncidentMap from "../incident_map";
+import { updateMarkers } from "../incident_map";
 import { getVisibleTweetList } from "./selectors";
 import { googleMapsApiKey } from "../secrets";
-
-const incidentMap = createIncidentMap();
-incidentMap.initMap({ apiKey: googleMapsApiKey });
 
 const logger = store => next => action => {
   console.log("dispatching", action);
@@ -14,6 +11,7 @@ const logger = store => next => action => {
   return result;
 };
 
+// Middleware to make map update markers when filter is changed
 const mapMiddleware = store => next => action => {
   if (
     action.type === "SET_FILTER" ||
@@ -24,7 +22,7 @@ const mapMiddleware = store => next => action => {
     const result = next(action);
     const state = store.getState();
     const visibleTweetList = getVisibleTweetList(state);
-    incidentMap.updateMarkers(visibleTweetList);
+    updateMarkers(visibleTweetList);
     return result;
   } else {
     return next(action);
