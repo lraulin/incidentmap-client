@@ -15,7 +15,7 @@ const defaultMapOptions = {
 };
 
 // Module instance variables
-const markers = [];
+let markers = [];
 let googleMap = null;
 let clusterer = null;
 let currentInfoWindow = null;
