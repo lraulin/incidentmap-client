@@ -16,7 +16,9 @@ const getSelectedIncidentTypes = state => {
   return Object.keys(incidentTypes).filter(key => incidentTypes[key]);
 };
 
-const getTweetDict = state => state.tweetReducer.tweetDict;
+const getTweetIds = state => state.tweetReducer.tweetIdList;
+
+export const getTweetDict = state => state.tweetReducer.tweetDict;
 
 const getTweetList = state => Object.values(getTweetDict(state));
 
@@ -26,39 +28,39 @@ export const getVisibleTweetList = createSelector(
     getSelectedIncidentTypes,
     getFilterStartDate,
     getFilterEndDate,
-    getTweetList,
+    getTweetIds,
+    getTweetDict,
   ],
-  (text, types, startDate, endDate, tweetList) => {
-    if (!tweetList.length) return [];
-    console.log(`filtering ${tweetList.length} tweets`);
+  (text, types, startDate, endDate, tweetIdList, tweetDict) => {
+    if (!tweetIdList.length) return [];
 
     // Predicates for filter callback--return true if condition is met.
-    const notRetweet = t => !("retweeted_status" in t);
-    const inDateRange = t => {
+    const notRetweet = id => !("retweeted_status" in tweetDict[id]);
+    const inDateRange = id => {
       if (startDate && endDate) {
         return (
-          new Date(t.created_at) >= startDate &&
-          new Date(t.created_at) <= endDate
+          new Date(tweetDict[id].created_at) >= startDate &&
+          new Date(tweetDict[id].created_at) <= endDate
         );
       } else {
         return true;
       }
     };
-    const matchesText = tweet => {
+    const matchesText = id => {
       if (text !== "") {
         return text
           .toLowerCase()
           .split(" ")
-          .some(word => tweet.text.toLowerCase().includes(word));
+          .some(word => tweetDict[id].text.toLowerCase().includes(word));
       } else {
         return true;
       }
     };
-    const hasTypes = t => {
-      if (typeof t.incidentType === "string") {
-        return types.includes(t.incidentType);
-      } else if (Array.isArray(t.incidentType)) {
-        return t.incidentType.some(type => types.includes(type));
+    const hasTypes = id => {
+      if (typeof tweetDict[id].incidentType === "string") {
+        return types.includes(tweetDict[id].incidentType);
+      } else if (Array.isArray(tweetDict[id].incidentType)) {
+        return tweetDict[id].incidentType.some(type => types.includes(type));
       } else {
         return false;
       }
@@ -74,13 +76,13 @@ export const getVisibleTweetList = createSelector(
 
     // Remove identical tweets even if urls contained in text field differ.
     const justText = text => text.slice(0, text.indexOf(" http"));
-    const filteredTweets = uniqBy(
-      t => justText(t.text),
-      into([], tweetFilter, tweetList),
+    const filteredTweetIds = uniqBy(
+      id => justText(tweetDict[id].text),
+      into([], tweetFilter, tweetIdList),
     );
     console.log(
-      `Showing ${filteredTweets.length} of ${tweetList.length} tweets`,
+      `Showing ${filteredTweetIds.length} of ${tweetIdList.length} tweets`,
     );
-    return filteredTweets;
+    return filteredTweetIds;
   },
 );

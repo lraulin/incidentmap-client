@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware } from "redux";
 import rootReducer from "./reducers";
-import { updateMarkers } from "../incident_map";
-import { getVisibleTweetList } from "./selectors";
+import { updateMarkers } from "../incidentMap";
+import { getVisibleTweetList, getTweetDict } from "./selectors";
 import { googleMapsApiKey } from "../secrets";
 
 const logger = store => next => action => {
@@ -21,8 +21,7 @@ const mapMiddleware = store => next => action => {
     console.log(`Map: Action Type: ${action.type}`);
     const result = next(action);
     const state = store.getState();
-    const visibleTweetList = getVisibleTweetList(state);
-    updateMarkers(visibleTweetList);
+    updateMarkers(getVisibleTweetList(state), getTweetDict(state));
     return result;
   } else {
     return next(action);

@@ -52,12 +52,12 @@ const addMarker = (lat, lng) => {
 // Create infowindow showing tweet for each marker with listener to open on click
 const addInfoWindow = marker => {
   const infoWindow = new window.google.maps.InfoWindow({
-    content: `<div id="infoWindow${marker.tweet.id_str}" />`,
+    content: `<div id="infoWindow${marker.tweetId}" />`,
   });
   infoWindow.addListener("domready", e =>
     ReactDOM.render(
       <InfoWindow tweets={[marker.tweet]} />,
-      document.getElementById(`infoWindow${marker.tweet.id_str}`),
+      document.getElementById(`infoWindow${marker.tweetId}`),
     ),
   );
   marker.addListener("click", () => {
@@ -92,8 +92,11 @@ const addClusterWindow = cluster => {
 };
 
 // Create markers on map for all currently visible tweets
-export const updateMarkers = tweets => {
-  console.log(`Adding ${tweets.length} tweets to the map`);
+export const updateMarkers = (visibleTweetIds, tweetDict) => {
+  // Close infowindow if one is open
+  if (currentInfoWindow) currentInfoWindow.close();
+
+  console.log(`Adding ${visibleTweetIds.length} tweets to the map`);
   if (window.google && googleMap) {
     // remove previous markers, if any
     if (clusterer) clusterer.clearMarkers();
@@ -103,15 +106,16 @@ export const updateMarkers = tweets => {
     }
 
     // Now that the map is cleared, if there are no tweets to add, we are done.
-    if (tweets.length === 0) return;
+    if (visibleTweetIds.length === 0) return;
 
-    tweets.forEach(tweet => {
+    visibleTweetIds.forEach(id => {
+      const tweet = tweetDict[id];
       if ("coordinates" in tweet) {
         const marker = addMarker(
           tweet.coordinates.Latitude,
           tweet.coordinates.Longitude,
         );
-        marker.tweet = tweet;
+        marker.tweetId = id;
         addInfoWindow(marker);
       }
     });
@@ -135,6 +139,6 @@ export const updateMarkers = tweets => {
       currentInfoWindow.open(googleMap);
     });
   } else {
-    setTimeout(() => updateMarkers(tweets), 500);
+    setTimeout(() => updateMarkers(visibleTweetIds, tweetDict), 500);
   }
 };
