@@ -1,8 +1,8 @@
 import { createStore, applyMiddleware } from "redux";
 import rootReducer from "./reducers";
 import { updateMarkers } from "../incidentMap";
-import { getVisibleTweetList, getTweetDict } from "./selectors";
 
+// Logger Middleware
 const logger = store => next => action => {
   console.log("dispatching", action);
   let result = next(action);
@@ -20,7 +20,10 @@ const mapMiddleware = store => next => action => {
     console.log(`Map: Action Type: ${action.type}`);
     const result = next(action);
     const state = store.getState();
-    updateMarkers(getVisibleTweetList(state), getTweetDict(state));
+    updateMarkers(
+      state.tweetReducer.visibleTweetIds,
+      state.tweetReducer.tweetDict,
+    );
     return result;
   } else {
     return next(action);

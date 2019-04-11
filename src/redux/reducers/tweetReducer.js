@@ -5,6 +5,7 @@ const initialState = {
   tweetIdList: [],
   tweetDict: {},
   visibleTweetIds: [],
+  selectedMarkerIds: [],
 };
 
 const tweetReducer = (state = initialState, action) => {
@@ -21,6 +22,8 @@ const tweetReducer = (state = initialState, action) => {
         tweetDict: state.tweetDict,
       });
       return { ...state, visibleTweetIds };
+    case actionTypes.SET_SELECTED_MARKERS:
+      return { ...state, selectedMarkerIds: action.selectedMarkerIds };
     default:
       return state;
   }

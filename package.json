@@ -45,7 +45,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "stop": "taskkill -F -IM node.exe",
-    "deploy": "yarn build && aws s3 sync build/ s3://tweet-map8675309"
+    "deploy": "npm build && aws s3 sync build/ s3://tweet-map8675309"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -58,8 +58,16 @@
   ],
   "proxy": "http://localhost:4000",
   "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
     "eslint-config-prettier": "4.1.0",
+    "eslint-config-react-app": "^3.0.8",
+    "eslint-plugin-flowtype": "^3.6.1",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-jsx-ally": "^6.0.3",
     "eslint-plugin-prettier": "3.0.1",
+    "eslint-plugin-react": "^7.12.4",
     "prettier": "1.16.4"
   }
 }
