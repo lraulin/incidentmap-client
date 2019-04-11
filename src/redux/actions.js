@@ -1,5 +1,3 @@
-import { initialState } from "./reducers/filterReducer";
-
 export const actionTypes = {
   UPDATE_TWEETS: "UPDATE_TWEETS",
   SET_FILTER: "SET_FILTER",
@@ -7,19 +5,18 @@ export const actionTypes = {
   SET_SELECTED_MARKERS: "SET_SELECTED_MARKERS",
 };
 
-export const updateTweets = ({ tweets }) => ({
+export const updateTweets = tweetDict => ({
   type: actionTypes.UPDATE_TWEETS,
-  tweets,
+  tweetDict,
 });
 
-export const setFilter = filter => ({
+export const setFilter = filterSettings => ({
   type: actionTypes.SET_FILTER,
-  filter,
+  filterSettings,
 });
 
 export const resetFilter = () => ({
   type: actionTypes.RESET_FILTER,
-  filter: initialState,
 });
 
 export const setSelectedMarkers = selectedMarkerIds => ({

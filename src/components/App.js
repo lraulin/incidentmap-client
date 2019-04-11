@@ -24,10 +24,10 @@ const App = ({ updateTweets }) => {
     const tweets = JSON.parse(localStorage.getItem("tweets"));
     if (tweets && Object.keys(tweets).length) {
       console.log("tweets retrieved from cache");
-      updateTweets({ tweets });
+      updateTweets(tweets);
     } else if (process.env.NODE_ENV === "development") {
       console.log("using mock database");
-      updateTweets({ tweets: mockDatabase.tweets });
+      updateTweets(mockDatabase.tweets);
     }
   };
 

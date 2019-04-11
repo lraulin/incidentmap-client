@@ -20,10 +20,7 @@ const mapMiddleware = store => next => action => {
     console.log(`Map: Action Type: ${action.type}`);
     const result = next(action);
     const state = store.getState();
-    updateMarkers(
-      state.tweetReducer.visibleTweetIds,
-      state.tweetReducer.tweetDict,
-    );
+    updateMarkers(state.visibleTweetIds, state.tweetDict);
     return result;
   } else {
     return next(action);

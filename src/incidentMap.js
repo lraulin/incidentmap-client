@@ -23,9 +23,7 @@ let googleMap = null;
 let clusterer = null;
 let currentInfoWindow = null;
 
-const onClickMarker = tweetId => {
-  return store.dispatch(setSelectedMarkers([tweedId]));
-};
+const onClickMarker = tweetId => store.dispatch(setSelectedMarkers([tweetId]));
 
 const onClickClusterMarker = (tweetIds = []) =>
   store.dispatch(setSelectedMarkers(tweetIds));
@@ -71,7 +69,7 @@ const addInfoWindow = marker => {
     ),
   );
   marker.addListener("click", () => {
-    onClickMarker(tweetId);
+    onClickMarker(marker.tweetId);
     if (currentInfoWindow) currentInfoWindow.close();
     infoWindow.open(googleMap, marker);
     currentInfoWindow = infoWindow;

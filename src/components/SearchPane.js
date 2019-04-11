@@ -7,26 +7,26 @@ import { setFilter, resetFilter } from "../redux/actions";
 
 const mapStateToProps = state => ({
   filterSettings: {
-    text: state.filterReducer.text,
-    startDate: state.filterReducer.startDate,
-    endDate: state.filterReducer.startDate,
+    text: state.filterSettings.text,
+    startDate: state.filterSettings.startDate,
+    endDate: state.filterSettings.startDate,
     incidentTypes: {
-      fatalCrash: state.filterReducer.incidentTypes.fatalCrash,
-      pedestrianCrash: state.filterReducer.incidentTypes.pedestrianCrash,
-      cyclistCrash: state.filterReducer.incidentTypes.cyclistCrash,
-      truckCrash: state.filterReducer.incidentTypes.truckCrash,
-      busCrash: state.filterReducer.incidentTypes.busCrash,
-      transitCrash: state.filterReducer.incidentTypes.transitCrash,
-      transSuicide: state.filterReducer.incidentTypes.transSuicide,
-      pipeline: state.filterReducer.incidentTypes.pipeline,
-      hazmat: state.filterReducer.incidentTypes.hazmat,
-      rail: state.filterReducer.incidentTypes.rail,
-      road: state.filterReducer.incidentTypes.road,
-      unsafe: state.filterReducer.incidentTypes.unsafe,
-      drone: state.filterReducer.incidentTypes.drone,
+      fatalCrash: state.filterSettings.incidentTypes.fatalCrash,
+      pedestrianCrash: state.filterSettings.incidentTypes.pedestrianCrash,
+      cyclistCrash: state.filterSettings.incidentTypes.cyclistCrash,
+      truckCrash: state.filterSettings.incidentTypes.truckCrash,
+      busCrash: state.filterSettings.incidentTypes.busCrash,
+      transitCrash: state.filterSettings.incidentTypes.transitCrash,
+      transSuicide: state.filterSettings.incidentTypes.transSuicide,
+      pipeline: state.filterSettings.incidentTypes.pipeline,
+      hazmat: state.filterSettings.incidentTypes.hazmat,
+      rail: state.filterSettings.incidentTypes.rail,
+      road: state.filterSettings.incidentTypes.road,
+      unsafe: state.filterSettings.incidentTypes.unsafe,
+      drone: state.filterSettings.incidentTypes.drone,
     },
   },
-  incidentTypeList: Object.keys(state.filterReducer.incidentTypes),
+  incidentTypeList: Object.keys(state.filterSettings.incidentTypes),
 });
 
 const mapDispatchToProps = dispatch => ({
