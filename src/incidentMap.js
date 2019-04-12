@@ -1,7 +1,6 @@
 import MarkerClusterer from "@google/markerclustererplus";
 import React from "react";
 import ReactDOM from "react-dom";
-import InfoWindow from "./components/InfoWindow";
 import store from "./redux/store";
 import { setSelectedMarkers } from "./redux/actions";
 
@@ -21,12 +20,6 @@ const defaultMapOptions = {
 let markers = [];
 let googleMap = null;
 let clusterer = null;
-let currentInfoWindow = null;
-
-const onClickMarker = tweetId => store.dispatch(setSelectedMarkers([tweetId]));
-
-const onClickClusterMarker = (tweetIds = []) =>
-  store.dispatch(setSelectedMarkers(tweetIds));
 
 // Load map when DOM is ready
 const onScriptLoad = () => {
@@ -48,63 +41,8 @@ if (window.google) {
   });
 }
 
-// Add marker to map
-const addMarker = (lat, lng) => {
-  const marker = new window.google.maps.Marker({
-    position: { lat, lng },
-  });
-  markers.push(marker);
-  return marker;
-};
-
-// Create infowindow showing tweet for each marker with listener to open on click
-const addInfoWindow = marker => {
-  const infoWindow = new window.google.maps.InfoWindow({
-    content: `<div id="infoWindow${marker.tweetId}" />`,
-  });
-  infoWindow.addListener("domready", e =>
-    ReactDOM.render(
-      <InfoWindow tweetIds={[marker.tweetId]} />,
-      document.getElementById(`infoWindow${marker.tweetId}`),
-    ),
-  );
-  marker.addListener("click", () => {
-    onClickMarker(marker.tweetId);
-    if (currentInfoWindow) currentInfoWindow.close();
-    infoWindow.open(googleMap, marker);
-    currentInfoWindow = infoWindow;
-  });
-};
-
-// Create infowindow for cluster marker showing all tweets in cluster
-const addClusterWindow = cluster => {
-  // Create unique id for cluster by combining lat & lng
-  const id = "L" + cluster.getCenter().lat() + "G" + cluster.getCenter().lng();
-
-  // Create the infowindow
-  const infoWindow = new window.google.maps.InfoWindow({
-    content: `<div id="infoWindow${id}" />`,
-  });
-
-  // Get tweets in cluster
-  const tweetIds = cluster.getMarkers().map(marker => marker.tweetId);
-
-  // Render the infowindow
-  infoWindow.addListener("domready", e =>
-    ReactDOM.render(
-      <InfoWindow tweetIds={tweetIds} />,
-      document.getElementById(`infoWindow${id}`),
-    ),
-  );
-
-  return infoWindow;
-};
-
 // Create markers on map for all currently visible tweets
 export const updateMarkers = (visibleTweetIds, tweetDict) => {
-  // Close infowindow if one is open
-  if (currentInfoWindow) currentInfoWindow.close();
-
   console.log(`Adding ${visibleTweetIds.length} tweets to the map`);
   if (window.google && googleMap) {
     // remove previous markers, if any
@@ -117,15 +55,23 @@ export const updateMarkers = (visibleTweetIds, tweetDict) => {
     // Now that the map is cleared, if there are no tweets to add, we are done.
     if (visibleTweetIds.length === 0) return;
 
+    // Add a marker for each visible Tweet
     visibleTweetIds.forEach(id => {
-      const tweet = tweetDict[id];
-      if ("coordinates" in tweet) {
-        const marker = addMarker(
-          tweet.coordinates.Latitude,
-          tweet.coordinates.Longitude,
-        );
+      if ("coordinates" in tweetDict[id]) {
+        const marker = new window.google.maps.Marker({
+          position: {
+            lat: tweetDict[id].coordinates.Latitude,
+            lng: tweetDict[id].coordinates.Longitude,
+          },
+        });
+        // Assign tweetId to marker
         marker.tweetId = id;
-        addInfoWindow(marker);
+        // Add an event listener for marker clicks
+        marker.addListener("click", () =>
+          store.dispatch(setSelectedMarkers([marker.tweetId])),
+        );
+        // Add marker reference to markers collection
+        markers.push(marker);
       }
     });
 
@@ -145,10 +91,7 @@ export const updateMarkers = (visibleTweetIds, tweetDict) => {
     window.google.maps.event.addListener(clusterer, "clusterclick", cluster => {
       // Get tweets in cluster
       const tweetIds = cluster.getMarkers().map(marker => marker.tweetId);
-      onClickClusterMarker(tweetIds);
-      if (currentInfoWindow) currentInfoWindow.close();
-      currentInfoWindow = addClusterWindow(cluster);
-      currentInfoWindow.open(googleMap);
+      store.dispatch(setSelectedMarkers(tweetIds));
     });
   } else {
     setTimeout(() => updateMarkers(visibleTweetIds, tweetDict), 500);

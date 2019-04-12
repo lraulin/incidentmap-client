@@ -1,21 +1,26 @@
 import React from "react";
 import TweetEmbed from "react-tweet-embed";
 import ReactScrollbar from "react-scrollbar";
+import { connect } from "react-redux";
 
 const myScrollbar = {
   // width: 400,
   height: 850,
 };
 
-const TweetPane = ({ filteredTweets, ...props }) => {
+const mapStateToProps = state => ({
+  selectedMarkerIds: state.selectedMarkerIds,
+});
+
+const TweetPane = ({ selectedMarkerIds }) => {
   return (
     <ReactScrollbar style={myScrollbar}>
-      {filteredTweets &&
-        filteredTweets
-          .reverse()
-          .map(tweet => <TweetEmbed id={tweet.id_str} key={tweet.id_str} />)}
+      {selectedMarkerIds &&
+        selectedMarkerIds.map(tweetId => (
+          <TweetEmbed id={tweetId} key={tweetId} />
+        ))}
     </ReactScrollbar>
   );
 };
 
-export default TweetPane;
+export default connect(mapStateToProps)(TweetPane);
