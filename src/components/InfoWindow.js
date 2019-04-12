@@ -2,7 +2,7 @@ import React from "react";
 import TweetEmbed from "react-tweet-embed";
 import PropTypes from "prop-types";
 
-const InfoWindow = ({ tweetIds, ...props }) => (
+const InfoWindow = ({ tweetIds }) => (
   <>
     {tweetIds.map(id => (
       <TweetEmbed id={id} key={id} />

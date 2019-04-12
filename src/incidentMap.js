@@ -64,7 +64,7 @@ const addInfoWindow = marker => {
   });
   infoWindow.addListener("domready", e =>
     ReactDOM.render(
-      <InfoWindow tweets={[marker.tweetId]} />,
+      <InfoWindow tweetIds={[marker.tweetId]} />,
       document.getElementById(`infoWindow${marker.tweetId}`),
     ),
   );
@@ -92,7 +92,7 @@ const addClusterWindow = cluster => {
   // Render the infowindow
   infoWindow.addListener("domready", e =>
     ReactDOM.render(
-      <InfoWindow tweets={tweetIds} />,
+      <InfoWindow tweetIds={tweetIds} />,
       document.getElementById(`infoWindow${id}`),
     ),
   );
