@@ -13,13 +13,17 @@ const mapStateToProps = state => ({
 });
 
 const TweetPane = ({ selectedMarkerIds }) => {
+  const tweetsOrMessage = () => {
+    if (!selectedMarkerIds || selectedMarkerIds.length === 0) {
+      return <p>Click on a marker to see Tweet(s).</p>;
+    } else {
+      return selectedMarkerIds.map(tweetId => (
+        <TweetEmbed id={tweetId} key={tweetId} />
+      ));
+    }
+  };
   return (
-    <ReactScrollbar style={myScrollbar}>
-      {selectedMarkerIds &&
-        selectedMarkerIds.map(tweetId => (
-          <TweetEmbed id={tweetId} key={tweetId} />
-        ))}
-    </ReactScrollbar>
+    <ReactScrollbar style={myScrollbar}>{tweetsOrMessage()}</ReactScrollbar>
   );
 };
 
