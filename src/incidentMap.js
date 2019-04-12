@@ -1,11 +1,11 @@
-import { googleMapsApiKey } from "./secrets";
 import MarkerClusterer from "@google/markerclustererplus";
 import React from "react";
 import ReactDOM from "react-dom";
 import InfoWindow from "./components/InfoWindow";
-import { dispatch } from "redux";
 import store from "./redux/store";
 import { setSelectedMarkers } from "./redux/actions";
+
+const googleMapsApiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
 // Constants
 const divName = "map";
