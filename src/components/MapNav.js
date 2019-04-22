@@ -5,19 +5,10 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
   ButtonGroup,
   Button,
-  Input,
 } from "reactstrap";
 import { types } from "../typeData";
-import DatePicker from "react-datepicker";
-import Checkbox from "./Checkbox";
 import { connect } from "react-redux";
 import "react-datepicker/dist/react-datepicker.css";
 import { setFilter, resetFilter } from "../redux/actions";
@@ -72,7 +63,7 @@ class MapNav extends React.Component {
           <NavbarBrand href="/">Incident Report Map</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
+            <Nav vertical className="ml-auto" navbar>
               <ButtonGroup vertical>
                 {types.map(type => (
                   <Button

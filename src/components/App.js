@@ -1,12 +1,19 @@
 import React from "react";
 import MapNav from "./MapNav";
 import TweetPane from "./TweetPane";
+import SearchPane from "./SearchPane";
+import Breakpoinnt, { BreakpoinntProvider } from "react-socks";
 
 const App = props => (
   <div className="App">
-    <MapNav />
+    <Breakpoinnt small down>
+      <MapNav />
+    </Breakpoinnt>
     <div className="container-fluid">
       <div className="row">
+        <Breakpoinnt medium up>
+          <SearchPane />
+        </Breakpoinnt>
         {/* [[[[[ MAP ]]]]] */}
         <div
           className="col-sm-7"
