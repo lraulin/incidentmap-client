@@ -73,12 +73,6 @@ class MapNav extends React.Component {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
-              <NavItem>
-                <NavLink href="/components/">Components</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="#">GitHub</NavLink>
-              </NavItem>
               <ButtonGroup vertical>
                 {types.map(type => (
                   <Button
@@ -108,36 +102,6 @@ class MapNav extends React.Component {
                     {type.displayName}
                   </Button>
                 ))}
-              </ButtonGroup>
-              <ButtonGroup className="btn-group-toggle">
-                <Button tag="label" active>
-                  <Input
-                    type="radio"
-                    name="options"
-                    id="option1"
-                    autocomplete="off"
-                    checked
-                  />{" "}
-                  Active
-                </Button>
-                <Button tag="label">
-                  <Input
-                    type="radio"
-                    name="options"
-                    id="option2"
-                    autocomplete="off"
-                  />{" "}
-                  Radio
-                </Button>
-                <Button tag="label">
-                  <Input
-                    type="radio"
-                    name="options"
-                    id="option3"
-                    autocomplete="off"
-                  />{" "}
-                  Radio
-                </Button>
               </ButtonGroup>
             </Nav>
           </Collapse>
