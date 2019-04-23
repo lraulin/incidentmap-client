@@ -1,6 +1,4 @@
 import MarkerClusterer from "@google/markerclustererplus";
-import React from "react";
-import ReactDOM from "react-dom";
 import store from "./redux/store";
 import { setSelectedMarkers } from "./redux/actions";
 
