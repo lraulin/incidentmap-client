@@ -10,16 +10,22 @@
 const Twitter = require("twitter");
 const incidentTypes = require("./incidentTypes");
 const findLocation = require("./findLocation");
-const postgresModule = require("./postgres");
-const { twitterConfig } = require("./secrets");
+const { saveTweet } = require("./mongo");
 const { yellow, red, green } = require("kleur");
 
-// Apply matching incidentType categories to tweet.
+const twitterConfig = {
+  consumer_key: process.env.TWITTER_CONSUMER_KEY,
+  consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+  access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
+  access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
+};
+
+// Return appropriate category for tweet.
 const categorize = tweet => {
   if (!tweet.id_str) {
     throw new TypeError("Not a Tweet!");
   }
-  const types = [];
+  let type;
   /**
    * The text of the Tweet and some entity fields are considered for matches.
    * Specifically, the text attribute of the Tweet, expanded_url and
@@ -52,10 +58,9 @@ const categorize = tweet => {
         textToSearch += " " + mention.screen_name;
       }
     }
-    if (textToSearch.match(re)) types.push(typeKey);
+    if (textToSearch.match(re)) type = typeKey;
   });
-  tweet.incidentType = types;
-  return tweet;
+  return type;
 };
 
 // Add data to tweet and save to database.
@@ -69,22 +74,23 @@ const processTweetStream = async data => {
       console.log(yellow("Tweet is a retweet...discarding."));
       return;
     }
-    categorize(data);
-    data = await findLocation(data);
-    if (!data.coordinates) {
+
+    const id = data.id_str;
+    const type = categorize(data);
+    const coords = await findLocation(data);
+    if (!coords) {
       if (data.user && data.user.location) {
         console.log(
           yellow(
-            `Geocoding for ${data.user.location} failed. Discarding Tweet.`
-          )
+            `Geocoding for ${data.user.location} failed. Discarding Tweet.`,
+          ),
         );
       } else {
         console.log(yellow("Geolocation failed. Discarding Tweet."));
       }
       return;
     }
-    postgresModule.saveTweet(data);
-    console.log(green("Tweet saved!"));
+    saveTweet({ id, type, data, ...coords });
   }
 };
 
@@ -99,11 +105,9 @@ const searchString = (() =>
     .replace(/\ \%26|\(|\)/g, "")
     .replace(/\|/g, ","))();
 
-console.log(searchString);
-
 // Begin watching for matching tweets.
 const stream = twitterClient.stream("statuses/filter", {
-  track: searchString
+  track: searchString,
 });
 
 // Initialize event listener to take action when a tweet matching keywords is found.

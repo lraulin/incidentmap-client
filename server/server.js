@@ -10,8 +10,6 @@ const express = require("express");
 const PORT = 80;
 
 // Initialize database connection
-const postgres = require("./postgres");
-postgres.testConnection();
 
 // Initialize server
 const app = express();
@@ -25,7 +23,7 @@ app.listen(PORT, () => {
 });
 
 // Make database contents available via REST api
-app.get("/tweets", async (req, res, next) => {
-  const data = await postgres.fetch();
-  res.json(data);
-});
+// app.get("/tweets", async (req, res, next) => {
+//   const data = await postgres.fetch();
+//   res.json(data);
+// });

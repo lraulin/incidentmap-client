@@ -51,7 +51,8 @@
     "styled-components": "^4.1.2",
     "twitter": "^1.7.1",
     "twitter-node-client": "^0.0.6",
-    "twitter-stream-api": "^0.5.2"
+    "twitter-stream-api": "^0.5.2",
+    "winston": "^3.2.1"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -67,5 +68,9 @@
     "stop": "taskkill -F -IM node.exe",
     "test": "react-scripts test"
   },
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4"
+  }
 }
