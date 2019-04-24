@@ -2,7 +2,7 @@ import React from "react";
 import MapNav from "./MapNav";
 import TweetPane from "./TweetPane";
 import SearchPane from "./SearchPane";
-import Breakpoinnt, { BreakpoinntProvider } from "react-socks";
+import Breakpoinnt from "react-socks";
 
 const App = props => (
   <div className="App">

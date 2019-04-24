@@ -1,9 +1,7 @@
 import React, { useEffect } from "react";
-import TweetPane from "./TweetPane";
 import "../styles/App.css";
 import { connect } from "react-redux";
 import { updateTweets } from "../redux/actions";
-import MapNav from "./MapNav";
 
 import mockDatabase from "../incident-report-map-export";
 
@@ -28,6 +26,8 @@ const App = props => {
     } else if (process.env.NODE_ENV === "development") {
       console.log("using mock database");
       props.updateTweets(mockDatabase.tweets);
+    } else {
+      console.log("[AppContainer.js line 32] Something else.");
     }
   };
 
@@ -45,6 +45,7 @@ const App = props => {
 
   // Initialization
   useEffect(() => {
+    console.log("[AppContainer ln 50] Using effect...");
     // Display tweets from cache on map if present.
     getTweetCache();
     // Get data from database and update map.
