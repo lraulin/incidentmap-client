@@ -12,6 +12,18 @@ import { types } from "../typeData";
 import { connect } from "react-redux";
 import "react-datepicker/dist/react-datepicker.css";
 import { setFilter, resetFilter } from "../redux/actions";
+import DatePicker from "react-datepicker";
+
+const today = new Date();
+
+const whiteText = {
+  color: "white",
+};
+
+const whiteBackground = {
+  backgroundColor: "white !important",
+  background: "white !important",
+};
 
 const mapStateToProps = state => ({
   filterSettings: {
@@ -93,6 +105,58 @@ class MapNav extends React.Component {
                     {type.displayName}
                   </Button>
                 ))}
+                <section style={whiteText}>
+                  After
+                  <br />
+                  <DatePicker
+                    selected={this.props.filterSettings.startDate}
+                    onChange={startDate =>
+                      this.props.setFilterSettings({
+                        ...this.props.filterSettings,
+                        startDate,
+                      })
+                    }
+                    maxDate={today}
+                    title={"something"}
+                  />
+                  <br />
+                  Before
+                  <br />
+                  <DatePicker
+                    selected={this.props.filterSettings.endDate}
+                    onChange={endDate =>
+                      this.props.setFilterSettings({
+                        ...this.props.filterSettings,
+                        endDate,
+                      })
+                    }
+                    maxDate={today}
+                  />
+                  <br />
+                  <label htmlFor="text">
+                    <strong>Filter by Keywords</strong>
+                  </label>
+                  <br />
+                  <input
+                    type="search"
+                    name="text"
+                    value={this.props.filterSettings.text}
+                    onChange={e => {
+                      this.props.setFilterSettings({
+                        ...this.props.filterSettings,
+                        text: e.target.value,
+                      });
+                    }}
+                    className={"form-control"}
+                  />
+                </section>
+                <Button
+                  onClick={this.props.resetFilterSettings}
+                  text={"Reset"}
+                  className={"btn btn-danger"}
+                >
+                  Reset
+                </Button>
               </ButtonGroup>
             </Nav>
           </Collapse>

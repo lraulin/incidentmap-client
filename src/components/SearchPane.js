@@ -5,6 +5,8 @@ import { connect } from "react-redux";
 import "react-datepicker/dist/react-datepicker.css";
 import { setFilter, resetFilter } from "../redux/actions";
 
+const today = new Date();
+
 const mapStateToProps = state => ({
   filterSettings: {
     text: state.filterSettings.text,
@@ -116,6 +118,8 @@ const SearchPane = ({
           onChange={startDate =>
             setFilterSettings({ ...filterSettings, startDate })
           }
+          maxDate={today}
+          title={"After"}
         />
         <br />
         Before
@@ -124,6 +128,8 @@ const SearchPane = ({
           onChange={endDate =>
             setFilterSettings({ ...filterSettings, endDate })
           }
+          maxDate={today}
+          title={"Before"}
         />
         <br />
         <br />
