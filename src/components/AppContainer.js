@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "../styles/App.css";
 import { connect } from "react-redux";
 import { updateTweets } from "../redux/actions";
+import App from "./App";
 
 import mockDatabase from "../incident-report-map-export";
 
@@ -11,7 +12,7 @@ const mapDispatchToProps = dispatch => ({
   updateTweets: tweets => dispatch(updateTweets(tweets)),
 });
 
-const App = props => {
+const AppContainer = props => {
   const cacheTweets = tweets => {
     localStorage.setItem("tweets", JSON.stringify(tweets));
   };
@@ -58,4 +59,4 @@ const App = props => {
 export default connect(
   null,
   mapDispatchToProps,
-)(App);
+)(AppContainer);
