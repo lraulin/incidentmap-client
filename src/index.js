@@ -13,7 +13,9 @@ require("bootstrap");
 
 ReactDOM.render(
   <Provider store={store}>
-    <AppContainer />
+    <BreakpointProvider>
+      <AppContainer />
+    </BreakpointProvider>
   </Provider>,
   document.getElementById("root"),
 );
