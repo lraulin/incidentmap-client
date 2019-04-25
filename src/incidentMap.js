@@ -22,7 +22,7 @@ let clusterer = null;
 // Load map when DOM is ready
 const onScriptLoad = () => {
   const div = document.getElementById(divName);
-  googleMap = new window.google.maps.Map(div, defaultMapOptions);
+  if (div) googleMap = new window.google.maps.Map(div, defaultMapOptions);
 };
 
 // Add script to map with listener to load map when ready
@@ -33,7 +33,7 @@ if (window.google) {
   script.type = "text/javascript";
   script.src = `https://maps.google.com/maps/api/js?key=${googleMapsApiKey}`;
   const body = document.getElementsByTagName("body")[0];
-  body.appendChild(script);
+  if (body) body.appendChild(script);
   script.addEventListener("load", e => {
     onScriptLoad();
   });

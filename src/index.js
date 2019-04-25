@@ -3,7 +3,7 @@ import $ from "jquery";
 import React from "react";
 import ReactDOM from "react-dom";
 import "./styles/index.css";
-import AppContainer from "./components/AppContainer";
+import MobileApp from "./mobile/MobileApp";
 import { Provider } from "react-redux";
 import { BreakpointProvider } from "react-socks";
 import store from "./redux/store";
@@ -14,7 +14,7 @@ require("bootstrap");
 ReactDOM.render(
   <Provider store={store}>
     <BreakpointProvider>
-      <AppContainer />
+      <MobileApp />
     </BreakpointProvider>
   </Provider>,
   document.getElementById("root"),

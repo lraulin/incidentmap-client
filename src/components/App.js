@@ -6,9 +6,6 @@ import Breakpoinnt from "react-socks";
 
 const App = props => (
   <div className="App">
-    <Breakpoinnt small down>
-      <MapNav />
-    </Breakpoinnt>
     <div className="container-fluid">
       <div className="row">
         <Breakpoinnt medium up>
@@ -25,6 +22,9 @@ const App = props => (
         </div>
       </div>
     </div>
+    <Breakpoinnt small down>
+      <MapNav />
+    </Breakpoinnt>
   </div>
 );
 
