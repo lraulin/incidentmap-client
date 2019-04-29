@@ -11,6 +11,7 @@
     "@google/markerclustererplus": "^2.1.11",
     "@material-ui/core": "^3.9.3",
     "axios": "^0.18.0",
+    "body-parser": "^1.19.0",
     "bootstrap": "^4.3.1",
     "bunyan": "^1.8.12",
     "esm": "^3.2.1",
@@ -61,7 +62,7 @@
   },
   "name": "twitter_map_react",
   "private": true,
-  "proxy": "http://localhost:4000",
+  "proxy": "http://localhost:8080",
   "scripts": {
     "build": "react-scripts build",
     "deploy": "npm build && aws s3 sync build/ s3://tweet-map8675309",

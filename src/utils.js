@@ -7,3 +7,10 @@ export const camelToTitle = text =>
     .split(" ")
     .map(word => capitalize(word))
     .join(" ");
+
+export const formatDate = (date = new Date()) => {
+  const year = date.getFullYear();
+  const month = date.getMonth();
+  const day = date.getDate();
+  return `${month}/${day}/${year}`;
+};

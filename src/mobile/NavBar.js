@@ -1,6 +1,9 @@
 import React from "react";
 import slugify from "slugify";
 import MenuButton from "./MenuButton";
+import undoIcon from "../images/undo-arrow.svg";
+import { connect } from "react-redux";
+import { resetFilter } from "../redux/actions";
 
 const backgroundColor = "#333";
 
@@ -15,7 +18,11 @@ const ulStyle = {
   width: "100%",
 };
 
-const NavBar = ({ setIsOpen }) => {
+const mapDispatchToProps = dispatch => ({
+  reset: () => dispatch(resetFilter()),
+});
+
+const NavBar = ({ isOpen, setIsOpen, reset }) => {
   return (
     <div>
       <ul style={ulStyle}>
@@ -29,9 +36,19 @@ const NavBar = ({ setIsOpen }) => {
             onClick={setIsOpen}
           />
         </li>
+        {isOpen && (
+          <li style={{ float: "right" }}>
+            <button onClick={() => reset()}>
+              <img src={undoIcon} width="49" height="42" color="white" alt="" />
+            </button>
+          </li>
+        )}
       </ul>
     </div>
   );
 };
 
-export default NavBar;
+export default connect(
+  null,
+  mapDispatchToProps,
+)(NavBar);

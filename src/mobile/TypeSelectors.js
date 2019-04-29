@@ -25,12 +25,39 @@ const TypeSelectors = ({
   setFilterSettings,
   resetFilterSettings,
 }) => {
+  const selectAll = () => {
+    incidentTypeList.forEach(type => {
+      filterSettings.incidentTypes[type] = true;
+      setFilterSettings(filterSettings);
+    });
+  };
+  const selectNone = () => {
+    incidentTypeList.forEach(type => {
+      filterSettings.incidentTypes[type] = false;
+      setFilterSettings(filterSettings);
+    });
+  };
   const toggleTypeFilter = type => {
     filterSettings.incidentTypes[type] = !filterSettings.incidentTypes[type];
     setFilterSettings(filterSettings);
   };
   return (
     <div>
+      <button
+        className={"btn btn-danger"}
+        onClick={selectNone}
+        style={{ width: "50%" }}
+      >
+        None
+      </button>
+      <button
+        className={"btn btn-success"}
+        onClick={selectAll}
+        style={{ width: "50%" }}
+      >
+        All
+      </button>
+      <br />
       {incidentTypeList.map(type => (
         <TypeButton
           key={type}

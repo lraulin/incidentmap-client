@@ -5,24 +5,22 @@
  */
 
 const express = require("express");
-
-// Port for server to use
-const PORT = 80;
-
-// Initialize database connection
-
-// Initialize server
+const path = require("path");
+const PORT = process.env.PORT || 8080;
 const app = express();
 
+app.use(express.static(path.join(__dirname, "build")));
+
+app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+
 // Begin watching for tweets to add to database.
-require("./tweetStreamer");
+// require("./server/tweetStreamer");
 
-// Begin listening for connections
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+app.get("/", (req, res) =>
+  res.sendFile(path.join(__dirname, "build", "index.html")),
+);
 
-// Make database contents available via REST api
+// // Make database contents available via REST api
 // app.get("/tweets", async (req, res, next) => {
 //   const data = await postgres.fetch();
 //   res.json(data);

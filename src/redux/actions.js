@@ -3,6 +3,8 @@ export const actionTypes = {
   SET_FILTER: "SET_FILTER",
   RESET_FILTER: "RESET_FILTER",
   SET_SELECTED_MARKERS: "SET_SELECTED_MARKERS",
+  SET_FILTER_START_DATE: "SET_FILTER_START_DATE",
+  SET_FILTER_END_DATE: "SET_FILTER_END_DATE",
 };
 
 export const updateTweets = tweetDict => ({
@@ -13,6 +15,16 @@ export const updateTweets = tweetDict => ({
 export const setFilter = filterSettings => ({
   type: actionTypes.SET_FILTER,
   filterSettings,
+});
+
+export const setFilterStartDate = startDate => ({
+  type: actionTypes.SET_FILTER_START_DATE,
+  startDate,
+});
+
+export const setFilterEndDate = endDate => ({
+  type: actionTypes.SET_FILTER_END_DATE,
+  endDate,
 });
 
 export const resetFilter = () => ({
