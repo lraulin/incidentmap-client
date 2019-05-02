@@ -15,8 +15,8 @@ const filterTweets = ({ filterSettings, tweetIdList, tweetDict }) => {
   const inDateRange = id => {
     if (startDate && endDate) {
       return (
-        new Date(tweetDict[id].created_at) >= startDate &&
-        new Date(tweetDict[id].created_at) <= endDate
+        new Date(tweetDict[id].created) >= startDate &&
+        new Date(tweetDict[id].created) <= endDate
       );
     } else {
       return true;

@@ -55,22 +55,20 @@ export const updateMarkers = (visibleTweetIds, tweetDict) => {
 
     // Add a marker for each visible Tweet
     visibleTweetIds.forEach(id => {
-      if ("coordinates" in tweetDict[id]) {
-        const marker = new window.google.maps.Marker({
-          position: {
-            lat: tweetDict[id].coordinates.Latitude,
-            lng: tweetDict[id].coordinates.Longitude,
-          },
-        });
-        // Assign tweetId to marker
-        marker.tweetId = id;
-        // Add an event listener for marker clicks
-        marker.addListener("click", () =>
-          store.dispatch(setSelectedMarkers([marker.tweetId])),
-        );
-        // Add marker reference to markers collection
-        markers.push(marker);
-      }
+      const marker = new window.google.maps.Marker({
+        position: {
+          lat: tweetDict[id].latitude,
+          lng: tweetDict[id].longitude,
+        },
+      });
+      // Assign tweetId to marker
+      marker.tweetId = id;
+      // Add an event listener for marker clicks
+      marker.addListener("click", () =>
+        store.dispatch(setSelectedMarkers([marker.tweetId])),
+      );
+      // Add marker reference to markers collection
+      markers.push(marker);
     });
 
     // Add a marker clusterer to manage the markers, if it doesn't exist.

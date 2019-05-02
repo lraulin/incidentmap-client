@@ -4,6 +4,7 @@ import NavBar from "./NavBar";
 import Menu from "./Menu";
 import { updateTweets } from "../redux/actions";
 import mockDatabase from "../incident-report-map-export";
+import { getData } from "../danDb";
 
 const mapBaseStyle = {
   height: "100vh",
@@ -28,7 +29,7 @@ const MobileApp = ({ updateTweets }) => {
   const toggleIsOpen = () => setIsOpen(!isOpen);
 
   useEffect(() => {
-    updateTweets(mockDatabase.tweets);
+    getData(updateTweets);
   }, []);
 
   return (

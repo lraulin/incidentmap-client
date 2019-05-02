@@ -9,9 +9,10 @@
 
 const Twitter = require("twitter");
 const incidentTypes = require("./incidentTypes");
-const findLocation = require("./findLocation");
+const { findLocation } = require("./findLocation");
 const { saveTweet } = require("./mongo");
-const { yellow, red, green } = require("kleur");
+const { yellow, red } = require("kleur");
+const logger = require("../share/logger");
 
 const twitterConfig = {
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
@@ -58,7 +59,10 @@ const categorize = tweet => {
         textToSearch += " " + mention.screen_name;
       }
     }
-    if (textToSearch.match(re)) type = typeKey;
+    if (textToSearch.match(re)) {
+      type = typeKey;
+      logger.log("info", `Tweet ${tweet.id_str} matches type ${typeKey}.`);
+    }
   });
   return type;
 };
@@ -67,30 +71,32 @@ const categorize = tweet => {
 const processTweetStream = async data => {
   if (data.id_str) {
     if (data.user.verified === false) {
-      console.log(yellow("User not verified...discarding Tweet."));
+      logger.log("info", "User not verified...discarding Tweet.");
       return;
     }
     if (data.retweeted_status) {
-      console.log(yellow("Tweet is a retweet...discarding."));
+      logger.log("info", "Tweet is a retweet...discarding.");
       return;
     }
 
-    const id = data.id_str;
+    const _id = data.id_str;
     const type = categorize(data);
     const coords = await findLocation(data);
     if (!coords) {
       if (data.user && data.user.location) {
-        console.log(
-          yellow(
-            `Geocoding for ${data.user.location} failed. Discarding Tweet.`,
-          ),
+        logger.log(
+          "warn",
+          `Geocoding for ${data.user.location} failed. Discarding Tweet.`,
         );
       } else {
-        console.log(yellow("Geolocation failed. Discarding Tweet."));
+        logger.log(
+          "warn",
+          `Geolocation failed for tweet ${_id}. Discarding Tweet.`,
+        );
       }
       return;
     }
-    saveTweet({ id, type, data, ...coords });
+    saveTweet({ _id, type, data, ...coords });
   }
 };
 

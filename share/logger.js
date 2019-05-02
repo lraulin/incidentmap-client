@@ -1,5 +1,5 @@
 const { createLogger, format, transports } = require("winston");
-const path = require("./config").data_path;
+const path = __dirname;
 
 const logger = createLogger({
   level: "info",

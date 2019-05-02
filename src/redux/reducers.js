@@ -67,7 +67,8 @@ const rootReducer = (state = getInitialState(), action) => {
   ) {
     let tweetDict, tweetIdList, visibleTweetIds, filterSettings;
     if (action.type === actionTypes.UPDATE_TWEETS) {
-      tweetDict = action.tweetDict;
+      tweetDict = {};
+      action.markerList.forEach(marker => (tweetDict[marker.created] = marker));
       tweetIdList = Object.keys(tweetDict);
       filterSettings = state.filterSettings;
     } else if (action.type === actionTypes.SET_FILTER) {
@@ -86,11 +87,13 @@ const rootReducer = (state = getInitialState(), action) => {
       filterSettings = { ...state.filterSettings, endDate };
     }
 
-    visibleTweetIds = filterTweets({
-      filterSettings,
-      tweetIdList,
-      tweetDict,
-    });
+    // visibleTweetIds = filterTweets({
+    //   filterSettings,
+    //   tweetIdList,
+    //   tweetDict,
+    // });
+    //TODO: Let's skip filtering for now.
+    visibleTweetIds = tweetIdList;
 
     return {
       ...state,

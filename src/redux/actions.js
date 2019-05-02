@@ -7,9 +7,9 @@ export const actionTypes = {
   SET_FILTER_END_DATE: "SET_FILTER_END_DATE",
 };
 
-export const updateTweets = tweetDict => ({
+export const updateTweets = markerList => ({
   type: actionTypes.UPDATE_TWEETS,
-  tweetDict,
+  markerList,
 });
 
 export const setFilter = filterSettings => ({
