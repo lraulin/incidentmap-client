@@ -5,6 +5,7 @@ import Menu from "./Menu";
 import { updateTweets } from "../redux/actions";
 import mockDatabase from "../incident-report-map-export";
 import { getData } from "../danDb";
+import DotMap from "./DotMap";
 
 const mapBaseStyle = {
   height: "100vh",
@@ -34,8 +35,10 @@ const MobileApp = ({ updateTweets }) => {
 
   return (
     <div>
+      <div id="message" />
       {isOpen && <Menu />}
-      <div className="col-sm-7" style={mapStyle(!isOpen)} id="map" />
+      {/* <div className="col-sm-7" style={mapStyle(!isOpen)} id="map" /> */}
+      <DotMap />
       <NavBar isOpen={isOpen} setIsOpen={toggleIsOpen} />
     </div>
   );

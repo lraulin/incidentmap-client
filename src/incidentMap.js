@@ -1,44 +1,27 @@
+import mapboxgl from "mapbox-gl/dist/mapbox-gl.js";
 import L from "leaflet";
 import "leaflet.markercluster";
+import { formatDate } from "./utils";
 
-const accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
+mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 
 // Constants
 const divName = "map";
-const defaultMapOptions = {
-  center: {
-    lat: 39.8283,
-    lng: -98.5795,
-  },
-  zoom: 4,
-};
-
-// Module instance variables
-let markers = [];
-let googleMap = null;
-let clusterer = null;
-
-// Load map when DOM is ready
-const onScriptLoad = () => {
-  const div = document.getElementById(divName);
-  if (div) googleMap = new window.google.maps.Map(div, defaultMapOptions);
-};
-
-// Add script to map with listener to load map when ready
-if (window.google) {
-  onScriptLoad();
-} else {
-  const script = document.createElement("script");
-  script.type = "text/javascript";
-  script.src = `https://maps.google.com/maps/api/js?key=${googleMapsApiKey}`;
-  const body = document.getElementsByTagName("body")[0];
-  if (body) body.appendChild(script);
-  script.addEventListener("load", e => {
-    onScriptLoad();
-  });
-}
 
 const allData = [];
+
+const BootstrapExt = {
+  warning(message) {
+    document.body.insertAdjacentHTML(
+      "beforeend",
+      [
+        '<div class="alert alert-warning" role="alert">',
+        '<a class="close" data-dismiss="alert">×</a>',
+        "<strong>Warning:</strong> " + message,
+      ].join(""),
+    );
+  },
+};
 
 function saveText(text, filename) {
   var a = document.createElement("a");
@@ -196,6 +179,7 @@ const create_DOT_Incident_Map = () => ({
   baseApiUrl: "http://dotdb2.eastus.cloudapp.azure.com:8082/api/twitter/",
   incidentTypes,
   myMap: null,
+  filterSettings: {},
   addAllMarkerLayers(
     data = [
       {
@@ -300,12 +284,15 @@ const create_DOT_Incident_Map = () => ({
       const hasLatLong = o => !!o.latitude && !!o.longitude;
       if (hasLatLong(datum)) {
         const [lat, long] = [datum.latitude, datum.longitude];
-        const marker = L.marker(L.latLng(lat, long), {
-          icon: L.mapbox.marker.icon({
-            "marker-symbol": "marker",
-            "marker-color": "4f4fc4",
-          }),
-        });
+        const el = document.createElement("div");
+        el.className = "marker";
+        const marker = mapboxgl
+          .Marker(el)
+          .setLngLat([long, lat])
+          .addTo(this.myMap);
+        // icon: L.mapbox.marker.icon({
+        //   "marker-symbol": "marker",
+        //   "marker-color": "4f4fc4",
 
         marker.on("click", event => {
           this.populateTweetList(event.latlng.lat, event.latlng.lng);
@@ -360,10 +347,8 @@ const create_DOT_Incident_Map = () => ({
     }
   },
   appendFromToDates(query) {
-    const startDateEl = document.getElementById("startDate");
-    const endDateEl = document.getElementById("endDate");
-    if (startDateEl.value !== "") {
-      const startDate = startDateEl.value.split("/");
+    if (this.filterSettings && this.filterSettings.startDate) {
+      const startDate = formatDate(this.filterSettings.startDate).split("/");
       query = query === "" ? "?" : query + "&";
       query =
         query +
@@ -375,8 +360,8 @@ const create_DOT_Incident_Map = () => ({
         startDate[1] +
         "%27";
     }
-    if (endDateEl.value !== "") {
-      const endDate = endDateEl.value.split("/");
+    if (this.filterSettings && this.filterSettings.endDate) {
+      const endDate = formatDate(this.filterSettings.endDate).split("/");
       query = query === "" ? "?" : query + "&";
       query =
         query + "to=%27" + endDate[2] + "-" + endDate[0] + "-" + endDate[1];
@@ -385,24 +370,15 @@ const create_DOT_Incident_Map = () => ({
     return query;
   },
   appendSearchText(query) {
-    const searchText = document.getElementById("search-text");
-    if (searchText.value !== "") {
+    const searchText = this.filterSettings && this.filterSettings.text;
+    if (searchText) {
       query = query === "" ? "?" : query + "&";
-      query = query + "search=" + searchText.value.replace(/\s/g, " %26 ");
+      query = query + "search=" + searchText.replace(/\s/g, " %26 ");
     }
     return query;
   },
   loadMap() {
     clearInterval(this.interval);
-    document.getElementById("container").style.display = "none";
-    [...document.getElementsByClassName("container-fluid")].forEach(
-      el => (el.style.display = "block"),
-    );
-    L.mapbox.accessToken =
-      "pk.eyJ1IjoiY29tYml0aHMiLCJhIjoiY2lraG8zbjBvMDI0dXRubTYzaTg1ZGxzbSJ9.1n9eD7Rq7LPpYVeVL_YNHQ";
-    this.myMap = L.mapbox
-      .map("map", "mapbox.streets")
-      .setView([38.1690312, -88.8929577], 4);
   },
   async loadLayers(loadCheckboxes) {
     this.incidentTypes.forEach(async incident => {
@@ -410,6 +386,7 @@ const create_DOT_Incident_Map = () => ({
         this.baseApiUrl +
         "history" +
         this.appendFromToDates("?query=" + incident.searchString);
+      console.log("incidentMap.js:loadLayers()");
       console.log(url);
       try {
         const data = await fetchAsync(url);
@@ -579,7 +556,5 @@ dotMap.interval = window.setInterval(
   () => (document.getElementById("message").innerHTML += "."),
   1000,
 );
-
-dotMap.initMap();
 
 export default dotMap;
