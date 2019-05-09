@@ -474,3 +474,545 @@
 {"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-04-30 10:15:45"}
 {"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-04-30 10:15:57"}
 {"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-04-30 10:16:18"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:05:37"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:05:48"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:05:55"}
+{"level":"info","message":"Tweet 1125386205997277187 matches type road.","timestamp":"2019-05-06 09:05:59"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:06:05"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:06:05"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:06:16"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:06:23"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:06:27"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:06:33"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:06:36"}
+{"level":"info","message":"Tweet 1125386356832780288 matches type road.","timestamp":"2019-05-06 09:06:36"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:06:38"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:06:45"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:06:46"}
+{"level":"info","message":"Tweet 1125386451179507713 matches type fatalCrash.","timestamp":"2019-05-06 09:06:58"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:06:59"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:07:02"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:07:06"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:07:10"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:07:13"}
+{"level":"info","message":"Tweet is a retweet...discarding.","timestamp":"2019-05-06 09:07:20"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:07:29"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:07:40"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:07:48"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:07:58"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:08:01"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:08:03"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:08:10"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:08:13"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:08:14"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:08:30"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:08:32"}
+{"level":"info","message":"Tweet is a retweet...discarding.","timestamp":"2019-05-06 09:08:48"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:08:57"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:09:40"}
+{"level":"info","message":"Tweet 1125387217839579136 matches type fatalCrash.","timestamp":"2019-05-06 09:10:01"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:10:08"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:10:16"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:10:16"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:10:29"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:10:31"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:10:34"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:10:46"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:10:49"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:10:55"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:10:57"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:10:58"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:11:01"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:11:13"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:11:23"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:11:32"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:11:35"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:11:36"}
+{"level":"info","message":"Tweet 1125387683252047872 matches type busCrash.","timestamp":"2019-05-06 09:11:52"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:12:01"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:12:02"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:12:07"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:12:10"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:12:21"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:12:38"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:12:41"}
+{"level":"info","message":"Tweet 1125387980388986881 matches type road.","timestamp":"2019-05-06 09:13:03"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:13:15"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:13:36"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:13:49"}
+{"level":"info","message":"Tweet is a retweet...discarding.","timestamp":"2019-05-06 09:13:52"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:13:53"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:14:20"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:14:34"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:14:36"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:14:38"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:15:03"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:15:04"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:15:15"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:15:16"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:15:32"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:15:33"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:15:35"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:15:39"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:16:02"}
+{"level":"info","message":"Tweet 1125388740870967298 matches type fatalCrash.","timestamp":"2019-05-06 09:16:04"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:16:09"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:16:12"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:16:17"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:16:17"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:16:17"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:16:20"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:16:21"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:16:33"}
+{"level":"info","message":"Tweet 1125388863021752320 matches type fatalCrash.","timestamp":"2019-05-06 09:16:33"}
+{"level":"info","message":"Tweet is a retweet...discarding.","timestamp":"2019-05-06 09:16:39"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:16:40"}
+{"level":"info","message":"Tweet is a retweet...discarding.","timestamp":"2019-05-06 09:17:09"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:17:10"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:17:13"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:17:22"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:17:24"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:17:29"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:17:31"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:17:40"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:17:46"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:17:54"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:17:59"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:18:21"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:18:25"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:18:39"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:18:41"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:18:42"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:18:59"}
+{"level":"info","message":"Tweet is a retweet...discarding.","timestamp":"2019-05-06 09:19:01"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:19:07"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:19:09"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:19:15"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:19:19"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:19:28"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:19:28"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:19:28"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:19:28"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:19:32"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:19:42"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:19:48"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:19:56"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:20:11"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:20:13"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:20:27"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:20:27"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:20:27"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:20:29"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:20:46"}
+{"level":"info","message":"Tweet 1125389944581689344 matches type busCrash.","timestamp":"2019-05-06 09:20:51"}
+{"level":"info","message":"Tweet 1125389946406232064 matches type busCrash.","timestamp":"2019-05-06 09:20:51"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:20:52"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:21:11"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:21:12"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:21:13"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:21:28"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:21:28"}
+{"level":"info","message":"Tweet is a retweet...discarding.","timestamp":"2019-05-06 09:21:29"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:21:31"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:21:35"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:21:45"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:21:46"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:22:09"}
+{"level":"info","message":"Tweet is a retweet...discarding.","timestamp":"2019-05-06 09:22:18"}
+{"level":"info","message":"Tweet is a retweet...discarding.","timestamp":"2019-05-06 09:22:24"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:22:29"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:22:35"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:22:37"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:22:37"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:22:38"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:22:42"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:22:45"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:22:49"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:22:51"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:22:56"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:23:15"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:23:40"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:23:43"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:23:44"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:23:45"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:23:47"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:24:05"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:24:17"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:24:17"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:24:25"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:24:25"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:24:33"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:24:35"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:24:52"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:24:59"}
+{"level":"info","message":"Tweet is a retweet...discarding.","timestamp":"2019-05-06 09:25:03"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:25:05"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:25:17"}
+{"level":"info","message":"Tweet 1125391064997801984 matches type fatalCrash.","timestamp":"2019-05-06 09:25:18"}
+{"level":"info","message":"Tweet 1125391100473167872 matches type road.","timestamp":"2019-05-06 09:25:26"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:25:29"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:25:44"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:25:44"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:25:46"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:25:50"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:25:50"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:25:53"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:25:54"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:25:59"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:26:05"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:26:11"}
+{"level":"info","message":"Tweet is a retweet...discarding.","timestamp":"2019-05-06 09:26:14"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:26:15"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:26:56"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:27:02"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:27:04"}
+{"level":"info","message":"Tweet 1125391530443800577 matches type fatalCrash.","timestamp":"2019-05-06 09:27:09"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:27:12"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:27:38"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:27:38"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:27:42"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:27:51"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:28:13"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:52:33"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:52:44"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:52:55"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:52:59"}
+{"level":"info","message":"Tweet 1125398059708551168 matches type fatalCrash.","timestamp":"2019-05-06 09:53:06"}
+{"level":"info","message":"Tweet 1125398059708551168 matches type truckCrash.","timestamp":"2019-05-06 09:53:06"}
+{"level":"info","message":"Tweet 1125398059708551168 saved with type truckCrash, lat: 32.7766642, lng: -96.79698789999999.","timestamp":"2019-05-06 09:53:06"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:53:10"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:53:15"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:53:15"}
+{"level":"info","message":"Tweet 1125398118915350529 matches type road.","timestamp":"2019-05-06 09:53:20"}
+{"level":"info","message":"Tweet 1125398118915350529 saved with type road, lat: 18.6535995, lng: -33.97366539.","timestamp":"2019-05-06 09:53:20"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:59:46"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:59:47"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:59:47"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:59:57"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 09:59:57"}
+{"level":"info","message":"Tweet 1125399804266176512 matches type fatalCrash.","timestamp":"2019-05-06 10:00:02"}
+{"level":"info","message":"Tweet 1125399804266176512 saved with type fatalCrash, lat: 34.0522342, lng: -118.2436849.","timestamp":"2019-05-06 10:00:02"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:00:03"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:00:05"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:00:07"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:00:11"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:00:11"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:00:12"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:00:14"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:00:15"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:00:19"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:00:19"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:00:24"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:00:25"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:00:26"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:00:27"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:00:28"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:00:31"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:00:46"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:00:49"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:01:04"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:01:08"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:01:10"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:01:15"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:01:21"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:01:27"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:01:30"}
+{"level":"info","message":"Tweet 1125400192142991360 matches type road.","timestamp":"2019-05-06 10:01:34"}
+{"level":"info","message":"Tweet 1125400192142991360 saved with type road, lat: 39.0997265, lng: -94.5785667.","timestamp":"2019-05-06 10:01:36"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:01:37"}
+{"level":"info","message":"Tweet is a retweet...discarding.","timestamp":"2019-05-06 10:01:38"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:01:38"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:01:45"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:01:56"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:01:57"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:02:02"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:02:07"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:02:08"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:02:20"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:02:40"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:02:40"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:02:42"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:02:43"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:02:47"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:03:01"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:03:17"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:03:20"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:03:26"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:03:28"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:03:28"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:03:28"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:03:31"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:03:45"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:03:50"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:03:55"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:04:09"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:04:10"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:04:15"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:04:25"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:04:30"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:04:33"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:04:34"}
+{"level":"info","message":"Tweet 1125400991787094016 matches type fatalCrash.","timestamp":"2019-05-06 10:04:45"}
+{"level":"info","message":"Tweet 1125400991787094016 matches type truckCrash.","timestamp":"2019-05-06 10:04:45"}
+{"level":"info","message":"Tweet 1125400991787094016 saved with type truckCrash, lat: 37.4137536, lng: -79.14224639999999.","timestamp":"2019-05-06 10:04:46"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:04:49"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:04:55"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:04:57"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:04:58"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:05:04"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:05:09"}
+{"level":"info","message":"Tweet 1125401097072447488 matches type fatalCrash.","timestamp":"2019-05-06 10:05:10"}
+{"level":"info","message":"Tweet 1125401097072447488 matches type pedestrianCrash.","timestamp":"2019-05-06 10:05:10"}
+{"level":"info","message":"Tweet 1125401097072447488 matches type truckCrash.","timestamp":"2019-05-06 10:05:10"}
+{"level":"info","message":"Tweet 1125401097072447488 matches type transitCrash.","timestamp":"2019-05-06 10:05:10"}
+{"level":"info","message":"Tweet 1125401097072447488 saved with type transitCrash, lat: 32.715738, lng: -117.1610838.","timestamp":"2019-05-06 10:05:11"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:05:15"}
+{"level":"info","message":"Tweet is a retweet...discarding.","timestamp":"2019-05-06 10:05:37"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:05:48"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:05:54"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:05:56"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:06:03"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:06:05"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:06:06"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:06:08"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:06:10"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:06:20"}
+{"level":"info","message":"Tweet is a retweet...discarding.","timestamp":"2019-05-06 10:06:26"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:06:37"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:06:45"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:06:46"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:06:47"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:06:53"}
+{"level":"info","message":"Tweet 1125401530125959168 matches type fatalCrash.","timestamp":"2019-05-06 10:06:53"}
+{"level":"info","message":"Tweet 1125401530125959168 matches type truckCrash.","timestamp":"2019-05-06 10:06:53"}
+{"level":"info","message":"Tweet 1125401530125959168 saved with type truckCrash, lat: 37.4137536, lng: -79.14224639999999.","timestamp":"2019-05-06 10:06:54"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:06:57"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:07:11"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:07:11"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:07:19"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:07:20"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:07:29"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:07:32"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:07:48"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:07:50"}
+{"level":"info","message":"Tweet 1125401782711144448 matches type busCrash.","timestamp":"2019-05-06 10:07:55"}
+{"level":"info","message":"Tweet 1125401782711144448 saved with type busCrash, lat: 35.4675602, lng: -97.5164276.","timestamp":"2019-05-06 10:07:55"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:08:07"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:08:11"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:08:17"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:08:24"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:08:24"}
+{"level":"info","message":"Tweet is a retweet...discarding.","timestamp":"2019-05-06 10:08:33"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:08:34"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:08:37"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:08:38"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:08:38"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:08:49"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:08:52"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:09:01"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:09:03"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:09:03"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:09:25"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:09:25"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:09:28"}
+{"level":"info","message":"Tweet is a retweet...discarding.","timestamp":"2019-05-06 10:09:31"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:09:34"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:09:37"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:09:38"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:09:38"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:09:40"}
+{"level":"info","message":"Tweet 1125402235884703750 saved with type undefined, lat: 35.4675602, lng: -97.5164276.","timestamp":"2019-05-06 10:09:42"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:09:54"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:09:55"}
+{"level":"info","message":"Tweet 1125402335411351558 saved with type undefined, lat: 34.047863, lng: 100.6196553.","timestamp":"2019-05-06 10:10:06"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:10:06"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:10:15"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:10:18"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:10:18"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:10:19"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:10:21"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:10:39"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:10:40"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:10:45"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:10:52"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:10:55"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:11:05"}
+{"level":"info","message":"Tweet is a retweet...discarding.","timestamp":"2019-05-06 10:11:06"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:11:23"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:11:34"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:11:34"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:11:44"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:11:50"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:11:50"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:11:51"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:11:55"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:12:20"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:12:25"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:12:29"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:12:30"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:12:31"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:12:35"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:12:37"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:12:37"}
+{"level":"info","message":"Tweet 1125403009566089218 matches type road.","timestamp":"2019-05-06 10:12:46"}
+{"level":"info","message":"Tweet 1125403009566089218 saved with type road, lat: 42.9849233, lng: -81.2452768.","timestamp":"2019-05-06 10:12:46"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:12:54"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:12:59"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:13:01"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:13:08"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:13:09"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:13:10"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:13:10"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:13:10"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:13:29"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:13:30"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:13:37"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:13:39"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:13:39"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:13:56"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:14:00"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:14:00"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:14:01"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:14:03"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:14:03"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:14:03"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:14:06"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:14:09"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:14:20"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:14:23"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:14:26"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:14:26"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:14:28"}
+{"level":"info","message":"Tweet 1125403536861356035 saved with type undefined, lat: 43.2994285, lng: -74.21793260000001.","timestamp":"2019-05-06 10:14:53"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:14:56"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:14:58"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:15:07"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:15:17"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:15:20"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:15:23"}
+{"level":"info","message":"Tweet 1125403695099797504 saved with type undefined, lat: 51.0486151, lng: -114.0708459.","timestamp":"2019-05-06 10:15:30"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:15:35"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:15:42"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:15:49"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:15:49"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:15:51"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:15:52"}
+{"level":"info","message":"Tweet is a retweet...discarding.","timestamp":"2019-05-06 10:16:09"}
+{"level":"info","message":"Tweet is a retweet...discarding.","timestamp":"2019-05-06 10:16:09"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:16:09"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:16:21"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:16:25"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:16:31"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:16:32"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:16:37"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:16:39"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 10:16:48"}
+{"level":"info","message":"Tweet 1125437611416272896 matches type fatalCrash.","timestamp":"2019-05-06 12:30:16"}
+{"level":"info","message":"Tweet 1125437611416272896 saved with type fatalCrash, lat: 44.0520691, lng: -123.0867536.","timestamp":"2019-05-06 12:30:16"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:30:20"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:30:30"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:30:31"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:30:31"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:30:53"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:31:09"}
+{"level":"info","message":"Tweet 1125437857957433344 matches type road.","timestamp":"2019-05-06 12:31:15"}
+{"level":"info","message":"Tweet 1125437857957433344 saved with type road, lat: 20.2960587, lng: 85.8245398.","timestamp":"2019-05-06 12:31:16"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:31:17"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:31:22"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:31:30"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:31:34"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:31:39"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:31:48"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:31:48"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:31:54"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:31:58"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:32:05"}
+{"level":"info","message":"Tweet 1125438085637005314 matches type fatalCrash.","timestamp":"2019-05-06 12:32:09"}
+{"level":"info","message":"Tweet 1125438085637005314 saved with type fatalCrash, lat: 26.7153424, lng: -80.0533746.","timestamp":"2019-05-06 12:32:09"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:32:13"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:32:17"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:32:27"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:32:32"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:32:32"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:32:33"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:32:35"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:32:35"}
+{"level":"info","message":"Tweet is a retweet...discarding.","timestamp":"2019-05-06 12:32:37"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:32:38"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:32:41"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:32:43"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:32:44"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:32:49"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:32:52"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:33:02"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:33:04"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:33:09"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:33:12"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:33:12"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:33:20"}
+{"level":"info","message":"Tweet is a retweet...discarding.","timestamp":"2019-05-06 12:33:28"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:33:30"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:33:37"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:33:50"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:33:50"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:33:57"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:34:17"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:34:32"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:34:34"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:34:51"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:35:10"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:35:11"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:35:19"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:35:21"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:35:21"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:35:21"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:35:21"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:35:36"}
+{"level":"info","message":"Tweet 1125438961206341639 saved with type undefined, lat: 40.7127753, lng: -74.0059728.","timestamp":"2019-05-06 12:35:38"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:35:55"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:36:08"}
+{"level":"info","message":"Tweet 1125439085542244352 saved with type undefined, lat: 51.7355868, lng: 0.4685497.","timestamp":"2019-05-06 12:36:08"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:36:11"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:36:11"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:36:18"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:36:27"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:36:29"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:36:37"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:36:42"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:36:46"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:37:02"}
+{"level":"info","message":"Tweet 1125439312558993413 saved with type undefined, lat: 41.6528052, lng: -83.5378674.","timestamp":"2019-05-06 12:37:02"}
+{"level":"info","message":"Tweet is a retweet...discarding.","timestamp":"2019-05-06 12:37:03"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:37:05"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:37:20"}
+{"level":"info","message":"Tweet 1125439472441499654 matches type pedestrianCrash.","timestamp":"2019-05-06 12:37:39"}
+{"level":"info","message":"Tweet 1125439472441499654 saved with type pedestrianCrash, lat: 37.2321077, lng: -95.7243335.","timestamp":"2019-05-06 12:37:40"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:37:45"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:37:47"}
+{"level":"info","message":"Tweet is a retweet...discarding.","timestamp":"2019-05-06 12:38:00"}
+{"level":"info","message":"Tweet is a retweet...discarding.","timestamp":"2019-05-06 12:38:04"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:38:24"}
+{"level":"info","message":"Tweet is a retweet...discarding.","timestamp":"2019-05-06 12:38:25"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:38:26"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:38:32"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:38:36"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:38:46"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:38:53"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:39:05"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:39:07"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:39:15"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:39:17"}
+{"level":"info","message":"Tweet 1125439888608747520 matches type road.","timestamp":"2019-05-06 12:39:19"}
+{"level":"info","message":"Tweet 1125439888608747520 saved with type road, lat: 37.9577016, lng: -121.2907796.","timestamp":"2019-05-06 12:39:19"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:39:24"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:39:25"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:39:29"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:39:52"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:39:53"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 12:39:55"}
+{"level":"info","message":"Tweet is a retweet...discarding.","timestamp":"2019-05-06 12:40:02"}
+{"level":"info","message":"Tweet is a retweet...discarding.","timestamp":"2019-05-06 12:40:07"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 13:08:34"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 13:08:49"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 13:08:54"}
+{"level":"info","message":"User not verified...discarding Tweet.","timestamp":"2019-05-06 13:09:00"}

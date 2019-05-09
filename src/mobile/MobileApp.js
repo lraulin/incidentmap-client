@@ -3,27 +3,12 @@ import { connect } from "react-redux";
 import NavBar from "./NavBar";
 import Menu from "./Menu";
 import { updateTweets } from "../redux/actions";
-import mockDatabase from "../incident-report-map-export";
 import { getData } from "../danDb";
 import DotMap from "./DotMap";
-
-const mapBaseStyle = {
-  height: "100vh",
-  width: "100%",
-};
 
 const mapDispatchToProps = dispatch => ({
   updateTweets: tweets => dispatch(updateTweets(tweets)),
 });
-
-const mapStyle = visible =>
-  visible
-    ? mapBaseStyle
-    : {
-        position: "absolute",
-        left: "-100%",
-        ...mapBaseStyle,
-      };
 
 const MobileApp = ({ updateTweets }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,8 +22,7 @@ const MobileApp = ({ updateTweets }) => {
     <div>
       <div id="message" />
       {isOpen && <Menu />}
-      {/* <div className="col-sm-7" style={mapStyle(!isOpen)} id="map" /> */}
-      <DotMap />
+      <DotMap hidden={isOpen} />
       <NavBar isOpen={isOpen} setIsOpen={toggleIsOpen} />
     </div>
   );

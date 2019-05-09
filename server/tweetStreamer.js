@@ -21,6 +21,8 @@ const twitterConfig = {
   access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
 };
 
+let sessionTweetCount = 0;
+
 // Return appropriate category for tweet.
 const categorize = tweet => {
   if (!tweet.id_str) {
@@ -96,7 +98,13 @@ const processTweetStream = async data => {
       }
       return;
     }
-    saveTweet({ _id, type, data, ...coords });
+    try {
+      saveTweet({ _id, type, data, ...coords });
+    } catch (e) {
+      logger.log("error", e.message);
+    } finally {
+      sessionTweetCount++;
+    }
   }
 };
 
@@ -126,3 +134,7 @@ stream.on("data", event => {
 stream.on("error", error => {
   console.log(red(error));
 });
+
+const getSessionTweetCount = () => sessionTweetCount;
+
+module.exports = { getSessionTweetCount };
