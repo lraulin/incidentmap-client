@@ -4,7 +4,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import MobileApp from "./mobile/MobileApp";
 import { Provider } from "react-redux";
-import { BreakpointProvider } from "react-socks";
+import Breakpoint, { BreakpointProvider } from "react-socks";
 import store from "./redux/store";
 
 ReactDOM.render(

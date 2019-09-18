@@ -4,9 +4,11 @@
  */
 
 const Sequelize = require("sequelize");
-const {
-  postgresConfig: { user, password, database, host }
-} = require("./secrets.js");
+
+const user = "postgres";
+const password = "postgres";
+const database = "map_transition_db";
+const host = "localhost";
 
 // initialize connection
 const sequelize = new Sequelize(database, user, password, {
@@ -15,9 +17,9 @@ const sequelize = new Sequelize(database, user, password, {
   pool: {
     max: 5,
     min: 0,
-    idle: 10000
+    idle: 10000,
   },
-  operatorsAliases: false
+  operatorsAliases: false,
 });
 
 // Create model for tweets table
@@ -25,13 +27,12 @@ const TweetModel = sequelize.define(
   "tweet",
   {
     tweet_id: { type: Sequelize.BIGINT, allowNull: false, primaryKey: true },
-    incident_id: Sequelize.STRING(50),
-    body: Sequelize.STRING(300),
+    incident: Sequelize.BIGINT,
+    description: Sequelize.STRING(300),
     latitude: Sequelize.REAL,
     longitude: Sequelize.REAL,
-    serialized: Sequelize.JSON
   },
-  { tableName: "tweets" }
+  { tableName: "tweets", timestamps: "false" },
 );
 
 module.exports = {
@@ -56,7 +57,7 @@ module.exports = {
       body: tweet.text,
       latitude: tweet.coordinates.Latitude,
       longitude: tweet.coordinates.Longitude,
-      serialized: tweet
+      serialized: tweet,
     })
       .save()
       .catch(e => console.log(e));
@@ -71,8 +72,8 @@ module.exports = {
     const tweetsArr = res.map(item => item.dataValues.serialized);
     const tweets = {};
     res.forEach(
-      item => (tweets[item.dataValues.tweet_id] = item.dataValues.serialized)
+      item => (tweets[item.dataValues.tweet_id] = item.dataValues.serialized),
     );
     return tweets;
-  }
+  },
 };

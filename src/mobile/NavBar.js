@@ -22,20 +22,22 @@ const mapDispatchToProps = dispatch => ({
   reset: () => dispatch(resetFilter()),
 });
 
-const NavBar = ({ isOpen, setIsOpen, reset }) => {
+const NavBar = ({ menuButton, isOpen, setIsOpen, reset }) => {
   return (
     <div>
       <ul style={ulStyle}>
         <li style={{ float: "left", color: "white" }}>
           <h3>Incident Map</h3>
         </li>
-        <li style={{ float: "right" }}>
-          <MenuButton
-            color={"white"}
-            backgroundColor={backgroundColor}
-            onClick={setIsOpen}
-          />
-        </li>
+        {menuButton && (
+          <li style={{ float: "right" }}>
+            <MenuButton
+              color={"white"}
+              backgroundColor={backgroundColor}
+              onClick={setIsOpen}
+            />
+          </li>
+        )}
         {isOpen && (
           <li style={{ float: "right" }}>
             <button onClick={() => reset()}>

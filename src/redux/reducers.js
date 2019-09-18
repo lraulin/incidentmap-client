@@ -1,4 +1,5 @@
 import { actionTypes } from "./actions";
+import { getData } from "../dansApi";
 import filterTweets from "./filterTweets";
 
 const initialIncidentTypes = {
@@ -92,8 +93,9 @@ const rootReducer = (state = getInitialState(), action) => {
     //   tweetIdList,
     //   tweetDict,
     // });
-    //TODO: Let's skip filtering for now.
-    visibleTweetIds = tweetIdList;
+
+    //TODO: This is where to make API call
+    getData(filterSettings);
 
     return {
       ...state,

@@ -104,6 +104,8 @@ const initMap = container => {
     style: "mapbox://styles/mapbox/streets-v9",
     center: GEOGRAPHIC_CENTER_OF_US,
     zoom: 2,
+    minZoom: 2,
+    maxZoom: 8,
   });
 
   map.on("load", () => {
